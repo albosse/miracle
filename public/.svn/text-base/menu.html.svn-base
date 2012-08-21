@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+ 	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="content-type" content="application/xhtml+xml;  charset=utf-8" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="../scripts/localstorage.js"></script>
+
+
+		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+
+  		<title>Codename :: Miracle</title>
+ </head>
+ <body>
+
+	<!-- Page 1:Home -->
+	 <div  data-role="page" id="home" data-title="Home">
+
+	    <div data-role="header">
+	        <h1>Miracle </h1>
+	    </div>
+	    <center><h2> Welcome to Miracle!</h2></center>
+
+        <ul id="expand" data-inset="true" data-role="listview" data-split-theme="d" >
+				    <li class="change" data-rel="dialog"  >
+				        <a href="#processes" data-rel="dialog" data-transition="slidedown"  >
+				            <img class="photo" src="../images/health.png" />
+				            <h1>Healthcare Processes</h1>
+				        </a>
+				    </li>
+				     <li class="change">
+				        <a href="#options" data-rel="dialog" >
+				            <img class="photo" src="../images/settings.png" />
+				            <h3>Options</h3>
+				        </a>
+				    </li>
+
+				    </li>
+				      <li class="change">
+				           <a href="glossary.html">
+				            <img class="photo" src="../images/glossary.png" />
+				            <h3>Glossary</h3>
+
+				        </a>
+				    </li>
+				    <li class="change">
+				           <a href="#about">
+				            <img class="photo" src="../images/about.png" />
+				            <h3>About</h3>
+
+				        </a>
+				    </li>
+				    </li>
+				    <li class="change">
+				           <a href="#disclaimer" data-rel="dialog" >
+				            <img class="photo" src="../images/paragraph.png" />
+				            <h3>Disclaimer</h3>
+
+				        </a>
+				    </li>
+			</ul>
+
+	 	<div data-role="footer" data-position="fixed">
+	        <h1>Universität Osnabrück &copy;2012 </h1>
+	    </div>
+	 </div>
+
+	<!-- Page 2:Processes -->
+	 <div  data-role="page" id="processes" data-title="Processes">
+
+	    <div data-role="header">
+	        <h1>Miracle </h1>
+	    </div>
+
+	    <div data-role="content">
+	   		<a data-role="button" data-rel="dialog" href="#apo_choice">Apoplektischer Insult</a>
+	   		<a data-role="button" data-rel="dialog" href="#lcp_choice">Liverpool Care Pathway of the Dying Patient</a>
+	 	</div>
+
+	 </div>
+
+	<!-- Page 3:Options -->
+
+	 <div  data-role="page" id="options" data-title="Options">
+
+	    <div data-role="header">
+	        <h1>Miracle </h1>
+	    </div>
+
+	    <div data-role="content">
+	   		<ul data-role="listview" data-inset="true">
+			    <li><a onclick="javascript:alert('Not yet implemented.')" href="#"><img src="../images/update.png" >Update</a></li>
+			    <li><a href="../summary" target="_blank" rel="exernal" ><img src="../images/log.png" >Reports</a></li>
+			    <li><a href="#storage"><img src="../images/storage.png" >Local Storage</a></li>
+			</ul>
+	 	</div>
+
+	 </div>
+
+	 	<!-- Page 4:About -->
+	 <div  data-role="page" id="about" data-title="About">
+
+			 <div data-role="header" data-id="foo" >
+		        	<h1>About</h1>
+		        	<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+		        	<div data-role="navbar">
+						<ul>
+							<li><a id="about_tab"  href="#about" >About Miracle</a></li>
+							<li><a id="contact_tab" href="#contact">Contact</a></li>
+							<li><a id="authors_tab" href="#authors">Authors</a></li>
+						</ul>
+					</div>
+		   	 </div>
+
+		    <div data-role="content">
+			 Miracle is the result of a collaboration of Universität Osnabrück and the University of Technology, Sydney.
+		 	</div>
+		   </div>
+	 </div>
+
+	 <!-- Page contact: Contact -->
+	 <div  data-role="page" id="contact" data-title="contact">
+			 <div data-role="header" data-id="foo" >
+		        	<h1>Contact</h1>
+		        	<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+		        	<div data-role="navbar">
+						<ul>
+							<li><a id="about_tab"  href="#about" >About Miracle</a></li>
+							<li><a id="contact_tab" href="#contact">Contact</a></li>
+							<li><a id="authors_tab" href="#authors">Authors</a></li>
+						</ul>
+					</div>
+		   	 </div>
+
+		      <div data-role="content">
+				Oliver Thomas
+		 	</div>
+	 </div>
+
+	  <!-- Page authors Authors -->
+	 <div  data-role="page" id="authors" data-title="authors">
+
+			  <div data-role="header" data-id="foo" >
+		        	<h1>Authors</h1>
+		        	<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+
+		        	<div data-role="navbar">
+						<ul>
+							<li><a id="about_tab"  href="#about" >About Miracle</a></li>
+							<li><a id="contact_tab" href="#contact">Contact</a></li>
+							<li><a id="authors_tab" href="#authors">Authors</a></li>
+						</ul>
+					</div>
+		   	 </div>
+
+		      <div data-role="content">
+			   		<ul>
+			   			<li>Alexander Bosse</li>
+			   			<li>Christian Fietkau</li>
+			   			<li>Volker Hindermann</li>
+			   			<li>Sebastian Robert</li>
+			   		</ul>
+		 	</div>
+	 </div>
+
+	<!-- Page 5: local Storage -->
+	 <div  data-role="page" id="storage" data-title="Local Storage">
+
+	    <div data-role="header">
+	        <h1>Miracle </h1>
+	        <a href="menu.html" data-icon="star">Home</a>
+	    </div>
+
+	    <div data-role="content">
+	   		<h1>Local Storage</h1>
+	   		<a data-theme="a" data-role="button" href=#pls>Print Local Storage</a>
+			<a data-role="button" onClick="confirmDelete()">Clear</a>
+	 	</div>
+
+	 </div>
+
+
+	 	<!-- Page 6: Print locale Storage -->
+	 <div  data-role="page" id="pls" data-title="Print local storage">
+
+	    <div data-role="header">
+	        <h1>Miracle </h1>
+	         <a href="menu.html" data-icon="star">Home</a>
+	    </div>
+
+	    <div data-role="content">
+		<h2>Local Storage: </h2>
+		<script>
+			printLocalStorage();
+		</script>
+	 	</div>
+	 </div>
+
+
+	<!-- Page 7: Apo choice -->
+	 <div  data-role="page" id="apo_choice" data-title="Apoplex">
+
+	    <div data-role="header">
+	        <h1>Miracle </h1>
+	    </div>
+
+	    <div data-role="content">
+	    	<a id="apoplex_link" data-role="button" data-rel="dialog" href="#apo_confirm">Neuen Prozess starten</a>
+		    <a data-role="button" onclick="javascript:getApoBmLink()" rel="external" href="#">Fortsetzen</a>
+	 	</div>
+
+	 </div>
+
+	<!-- Page 8: LCP choice -->
+	 <div  data-role="page" id="lcp_choice" data-title="LCP">
+
+	    <div data-role="header">
+	        <h1>Miracle </h1>
+	    </div>
+
+	    <div data-role="content">
+		    <a id="lcp_link" data-role="button" data-rel="dialog" href="#lcp_confirm">Start new Process</a>
+		    <a data-role="button" onclick="javascript:getLCPBmLink()" rel="external" href="#">Continue</a>
+	 	</div>
+	 </div>
+
+	<!-- Page 9: LCP confirm -->
+	 <div  data-role="page" id="lcp_confirm" data-title="LCP">
+	    <div data-role="content">
+	    	<p>Do you really want to start a new process and delete all existing data?</p>
+		    <a id="lcp_link" onclick="javascript:clearLCP()" data-role="button" rel="external" href="../processes/LCP.html">Confirm</a>
+		    <a data-role="button" data-rel="back" >Cancel</a>
+	 	</div>
+	 </div>
+
+	<!-- Page 10: APO confirm -->
+	 <div  data-role="page" id="apo_confirm" data-title="apo">
+	    <div data-role="content">
+	    	<p>Möchten Sie wirklich einen Prozess beginnen und alle bestehenden Daten löschen?</p>
+		    <a id="apo_link" onclick="javascript:clearApo()" data-role="button" rel="external" href="../processes/Apoplex.html">Confirm</a>
+		    <a data-role="button" data-rel="back" >Cancel</a>
+	 	</div>
+	 </div>
+
+
+	<!-- Page 11: Disclaimer -->
+	 <div  data-role="page" id="disclaimer" data-title="Disclaimer">
+
+	    <div data-role="header">
+	        <h1>Miracle </h1>
+	    </div>
+
+	    <div data-role="content">
+<p><strong>Haftung für Inhalte</strong></p>
+    <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt.
+      Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte
+      können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für
+      eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+      Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
+      verpflichtet, übermittelte oder gespeicherte fremde Informationen zu
+      überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige
+      Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der
+      Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon
+      unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem
+      Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei
+      Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte
+      umgehend entfernen.</p>
+    <p><strong>Haftung für Links</strong></p>
+    <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren
+      Inhalte wir keinen Einfluss haben. Deshalb können wir für diese
+      fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte
+      der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der
+      Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung
+      auf mögliche Rechtsverstöße überprüft. Rechtswidrige
+      Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente
+      inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte
+      einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen
+      werden wir derartige Links umgehend entfernen.</p>
+    <p><strong>Urheberrecht</strong></p>
+    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
+      unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und
+      jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen
+      der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads
+      und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen
+      Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden,
+      werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche
+      gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis.
+      Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+    <p><strong>Datenschutz</strong></p>
+    <p>Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name,
+      Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.
+    </p>
+    <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B.
+      bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann.
+      Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht
+      möglich. </p>
+    <p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten
+      durch Dritte zur Übersendung von nicht ausdrücklich angeforderter
+      Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen.
+      Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte
+      im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails,
+      vor.</p><br />
+
+		<a href="../public/menu.html" rel="external" data-role="button">Home</a>
+	</div>
+
+	 </div>
+
+
+	</body>
+</html>

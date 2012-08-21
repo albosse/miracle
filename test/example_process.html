@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en_US" xml:lang="en_US">
+ <head>
+  <title> </title>
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="content-type" content="application/xhtml+xml;  charset=utf-8" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+
+		<script>
+			$(document).bind('pageinit',function()
+			{
+				$('.change').click(function(e)
+				{
+					$(this).find('img').attr('src', 'http://www.villa-tiha.com/icon_check.png');
+					$(this).next().show();
+				});
+			});
+		</script>
+
+ </head>
+<body>
+<!-- First Page -->
+<div  data-role="page" id="home" data-title="Home">
+    <div data-role="header">
+        <h1>Miracle </h1>
+    </div>
+
+    <div data-role="content">
+        <ol id="expand" data-inset="true" data-role="listview" data-split-theme="d" >
+				    <li class="change" >
+				        <a href="#visit" data-rel="dialog" data-transition="slidedown" >
+				            <img class="photo" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Wikipedia_progress_icon.svg/451px-Wikipedia_progress_icon.svg.png" />
+				            <h1>Patient besuchen</h1>
+				        </a>
+				    </li>
+				     <li class="change" style="display:none;">
+				        <a href="#treat" data-rel="dialog" data-transition="slidedown">
+				            <img class="photo" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Wikipedia_progress_icon.svg/451px-Wikipedia_progress_icon.svg.png" />
+				            <h3>Patient versorgen</h3>
+				        </a>
+				    </li>
+				     <li class="change" style="display:none;">
+						<a>
+				            <img class="photo" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Wikipedia_progress_icon.svg/451px-Wikipedia_progress_icon.svg.png" />
+				            <h3>Hier nur abhaken</h3>
+						</a>
+
+				    </li>
+				    <li class="change" style="display:none;">
+				           <a href="#leave" data-rel="dialog" data-transition="slidedown">
+				            <img class="photo" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Wikipedia_progress_icon.svg/451px-Wikipedia_progress_icon.svg.png" />
+				            <h3>Patient verlassen</h3>
+
+				        </a>
+				    </li>
+			</ol>
+    </div>
+
+     <div data-role="footer" data-position="fixed">
+        <h1>Copyright 2012 </h1>
+    </div>
+
+</div>
+
+<!-- Second Page -->
+<div  data-role="page" id="visit" data-title="Patient besuchen">
+    <div data-role="content">
+       	<a  href="#home"  data-role="button" id="lebt">Patient lebt</a>
+       	<a  href="#home"  data-role="button" data-theme="e">Patient bewusstlos</a>
+    </div>
+</div>
+
+<!-- Third Page -->
+<div  data-role="page" id="treat" data-title="Patient versorgen">
+
+ 	<div data-role="content">
+		<fieldset data-role="controlgroup" data-type="vertical"  >
+		    <input type="checkbox" name="genre" id="c1" />
+		       <label for="c1" >Verband wechseln</label>
+
+		       <input type="checkbox" name="genre" id="c2" />
+		       <label for="c2"  >Gut zureden</label>
+
+		       <input type="checkbox" name="genre" id="c3" />
+		    <label for="c3" >Auf die Schulter klopfen</label>
+		</fieldset>
+	<a href="#home"  data-role="button">Weiter</a>
+	</div>
+</div>
+
+<!-- Fourth Page -->
+<div  data-role="page" id="leave" data-title="Patient verlassen">
+
+ 	<div data-role="content">
+		<p>Der Prozess wurde beendet!</p>
+		<a href="#home" data-role="button">Beenden</a>
+	</div>
+</div>
+	</body>
+</html>

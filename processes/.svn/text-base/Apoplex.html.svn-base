@@ -1,0 +1,645 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+ 	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="content-type" content="application/xhtml+xml;  charset=utf-8" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+		<link rel="stylesheet" type="text/css" href="../scripts/Stylesheet.css">
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+		<script>
+ 		$(document).bind("mobileinit", function() {
+		 $.mobile.page.prototype.options.addBackBtn = true;
+		 });
+		 </script>
+
+		<script src="../scripts/localstorage.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+
+		<title>Liverpool Care Pathway</title>
+ </head>
+ <body>
+
+	<!-- Page 1:Start -->
+	 <div data-role="page" id="index">
+	    <div data-role="header">
+	        <h1>Apoplektischer Insult</h1>
+	    </div>
+	    <div data-role="content">
+		    <p> Als Schlaganfall (auch Gehirnschlag, zerebraler Insult, apoplektischer Insult,
+		    Apoplexia cerebri, Ictus apoplecticus, in der medizinischen Umgangssprache häufig
+		    verkürzend auch Apoplex oder Insult)wird eine plötzlich auftretende Erkrankung des
+		    Gehirns bezeichnet, die oft zu einem anhaltenden Ausfall von Funktionen	des
+		    Zentralnervensystems führt und durch kritische Störungen der Blutversorgung
+		    des Gehirns verursacht wird.
+			</p>
+	   		<a onClick ="bookmark('index')" href="#symptome_pruefen"  data-role="button" >Prozess starten</a>
+	 	</div>
+	 	<div data-role="footer" data-position="fixed">
+	        <h1>Copyright 2012</h1>
+	    </div>
+	 </div>
+
+
+	 <!-- "#symptome_pruefen" -->
+	 <div  data-role="page" id="symptome_pruefen" >
+	    <div data-role="header">
+	        	<h1>Apoplektischer Insult</h1>
+	    </div>
+	    <div data-role="content">
+	    	 <h2>Neurologische Defizite prüfen</h2>
+	    	<p>Den Patienten auf Neurologische Defizite prüfen: </p>
+	    	<img src="../images/apoplex/symptome.jpg" />
+			<fieldset id="sympt" data-role="controlgroup" data-type="vertical"  >
+			    <form name = "sym_form">
+			    <input class="symptom" type="checkbox" name="symptom" id="symptome_pruefen_s1" />
+			    <label for="symptome_pruefen_s1">Halbseitenlähmung</label>
+
+			    <input class="symptom" type="checkbox" name="symptom" id="symptome_pruefen_s2" />
+			    <label for="symptome_pruefen_s2">FAST</label>
+
+			    <input class="symptom"type="checkbox" name="symptom" id="symptome_pruefen_s3" />
+			    <label for="symptome_pruefen_s3">Sehstörung</label>
+
+			    <input class="symptom"type="checkbox" name="symptom" id="symptome_pruefen_s4" />
+			    <label for="symptome_pruefen_s4">Taubheitsgefühl/Parästhesien</label>
+
+			    <input class="symptom"type="checkbox" name="symptom" id="symptome_pruefen_s5" />
+			    <label for="symptome_pruefen_s5">Bewusstseinsstörungen unklarer Ursache</label>
+			    </form>
+			</fieldset>
+			<div id="placeholder" class="ui-body ui-body-e">Bitte wählen Sie aus! </div>
+
+			<script>
+			$(document).ready()
+			{
+				var bm1 = "symptome_pruefen";
+				$('.symptom').click(function()
+				{
+					$('<a onClick ="saveCheckValuesBm(document.sym_form, bm1)" href="#basismassnahmen" data-role="button">Weiter</a>').insertAfter('#placeholder').button();
+					$('#placeholder').remove();
+				});
+			};
+			</script>
+	 	</div>
+	 </div>
+
+
+	 <!-- "#Basismaßnahmen einleiten" -->
+	 <div  data-role="page" id="basismassnahmen" >
+	    <div data-role="header" data-position="fixed">
+	    	<h1>Apoplektischer Insult</h1>
+	    	<h2>Basismaßnahmen einleiten</h2>
+	    </div>
+	    <div data-role="content">
+
+			<h2> Lagerungsart feststellen </h2>
+			<p>Liegen beim Patienten Schutzreflexe vor?
+				Als Schutzreflexe werden angesehen:
+				<ul>
+				    <li>Schluckreflex</li>
+				    <li>Würgereflex</li>
+				    <li>Lidschlussreflex</li>
+				    <li>Nies- und Kratzreflex</li>
+				    <li>Tränenflussreflex </li>
+		       </ul>
+		       Weißt der Patient eine/mehrere der aufgeführten Reflexe auf?
+		   </p>
+				<a onClick ="saveValueBm('basismassnahmen', 'ja', 'basismassnahmen')" href="#rr"  data-role="button" >ja</a>
+     		  	<a onClick ="saveValueBm('basismassnahmen', 'nein', 'basismassnahmen')" href="#stabile_seitenlage"  data-role="button" data-theme="e">nein</a>
+	 	</div>
+	 </div>
+
+	 <!-- "#RR" -->
+	 <div  data-role="page" id="rr" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	     <h2>Basismaßnahmen einleiten</h2>
+	    </div>
+	    <div data-role="content">
+	    	<h2>RR</h2>
+	    	  Blutdruckmessung beim Patienten durchführen.<br />
+	    	  <img src="../images/apoplex/rr.jpg" width="30%" />
+
+			<h2> RR > 130 mmHg syst? </h2>
+			<p> <i>Riva-Rocci, in der Medizin, Abkürzung für traditionelle Blutdruckmessung am Oberarm nach Scipione Riva-Rocci.</i></p>
+				<a onClick ="saveValueBm('rr', 'ja', 'rr')" href="#ohl"  data-role="button">ja</a>
+     		  	<a onClick ="saveValueBm('rr', 'nein', 'rr')" href="#flach_lagern"  data-role="button" data-theme="e">nein</a>
+	 	</div>
+	 </div>
+
+
+	 <!-- "#stabile_seitenlage" -->
+	 <div  data-role="page" id="stabile_seitenlage" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	     <h2>Basismaßnahmen einleiten</h2>
+	    </div>
+	    <div data-role="content">
+	       <h2>Stabile Seitenlage</h2>
+	       Den Patienten in die stabile Seitenlage bringen.
+			<a onClick ="bookmark('stabile_seitenlage')" href="#notarzt_notwendigkeit_pruefen"  data-role="button" >Weiter</a>
+	 	</div>
+	 </div>
+
+
+	 <!-- "#ohl" -->
+	 <div  data-role="page" id="ohl" >
+	    <div data-role="header">
+	        <h1>Apoplektischer Insult</h1>
+	        <h2>Basismaßnahmen einleiten</h2>
+	    </div>
+	    <div data-role="content">
+	    	<h2>OHL 30°</h2>
+	  	    <p>Den Patienten in die Oberkörperhochlage 30° bringen.</p>
+			<a onClick ="bookmark('ohl')" href="#notarzt_notwendigkeit_pruefen"  data-role="button" >Weiter</a>
+	 	</div>
+	 </div>
+
+
+	 <!-- "#flach_lagern" -->
+	 <div  data-role="page" id="flach_lagern" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	     <h2>Basismaßnahmen einleiten</h2>
+	    </div>
+	    <div data-role="content">
+	    	<h2>Flach lagern</h2>
+	    	 Den Patienten flach lagern.
+			<a onClick ="bookmark('flach_lagern')" href="#notarzt_notwendigkeit_pruefen"  data-role="button" >Weiter</a>
+	 	</div>
+	 </div>
+
+
+	 <!-- "#notarzt_notwendigkeit_pruefen -->
+	 <div  data-role="page" id="notarzt_notwendigkeit_pruefen" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	     <h2>Basismaßnahmen einleiten</h2>
+	    </div>
+	    <div data-role="content">
+	    	<h2>Notarztnotwendigkeit prüfen</h2>
+	    	<p>Ist es notwendig, einen Notarzt zu rufen?</p>
+			<a onClick="saveValueBm('notarzt_notwendigkeit_pruefen', 'notwendig', 'notarzt_notwendigkeit_pruefen')" href="#notarzt_rufen"  data-role="button">Notwendig</a>
+     		<a onClick="saveValueBm('notarzt_notwendigkeit_pruefen', 'nicht notwendig', 'notarzt_notwendigkeit_pruefen')" href="#atemwege_freimachen"  data-role="button" data-theme="e">Nicht notwendig</a>
+	 	</div>
+	 </div>
+
+	 <!-- #notarzt_rufen -->
+	 <div  data-role="page" id="notarzt_rufen" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	     <h2>Basismaßnahmen einleiten</h2>
+	    </div>
+	    <div data-role="content">
+		    <h2>Notarzt rufen</h2>
+		    <img src="../images/apoplex/notarzt.jpg" width="30%" />
+		    <div class="ui-body ui-body-e">
+		    	<p>Notarzt rufen oder interne bekannte Rufnummer wählen.<br /><br />
+		    		Deutschland: <a href="tel:"112">112</a></br>
+		    		USA: <a href="tel:"911">911</a>
+		   		 </p>
+		    </div>
+			<a onClick ="bookmark('notarzt_rufen')" href="#atemwege_freimachen"  data-role="button" >Weiter</a>
+	 	</div>
+	 </div>
+
+	  <!-- #atemwege_freimachen -->
+	 <div  data-role="page" id="atemwege_freimachen" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	     <h2>Basismaßnahmen einleiten</h2>
+	    </div>
+	    <div data-role="content">
+	    	<h2>Atemwege freimachen</h2>
+	    	Die Atemwege des Patienten freimachen und freihalten.
+			<a onClick ="bookmark('atemwege_freimachen')" href="#monitoring"  data-role="button" >Weiter</a>
+	 	</div>
+	 </div>
+
+
+	 <!-- #Monitoring-->
+	 <div  data-role="page" id="monitoring" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	     <h2>Basismaßnahmen einleiten</h2>
+	    </div>
+	    <div data-role="content">
+	    	<h2>Monitoring</h2>
+	    	Den Patienten beobachten.
+			<a onClick ="bookmark('monitoring')" href="#sauerstoffgehalt_pruefen"  data-role="button" >Weiter</a>
+	 	</div>
+	 </div>
+
+	 <!-- #sauerstoffgehalt_pruefen -->
+	 <div  data-role="page" id="sauerstoffgehalt_pruefen" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	     <h2>Basismaßnahmen einleiten</h2>
+	    </div>
+	    <div data-role="content">
+	    <h2>Sauerstoffgehalt prüfen</h2>
+	    <p>Den Sauerstoffgehalt des Blutes des Patienten überprüfen.</p>
+	    <label for="slider-0">Sauerstoffgehalt in %</label>
+			<input type="range" name="slider" id="slider-0" value="94" min="50" max="100" />
+	    	<h2>SpO2 < 94%?</h2>
+			<a href="#" id="sauerstoff" data-role="button">Weiter</a>
+			<script>
+				$('#sauerstoff').click(function(){
+					saveValue('sauerstoffgehalt_pruefen', $('#slider-0').val());
+					if($('#slider-0').val() < 94)
+					{
+						$.mobile.changePage('#sauerstoff_geben');
+					}
+					else
+					{
+						$.mobile.changePage('#bz_messung');
+					}
+				});
+
+			</script>
+
+
+	 	</div>
+	 </div>
+
+	 <!-- #sauerstoff_geben -->
+	 <div  data-role="page" id="sauerstoff_geben" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	     <h2>Basismaßnahmen einleiten</h2>
+	    </div>
+	    <div data-role="content">
+	    	<h2>Sauerstoff geben 4-6l/min</h2>
+	    	Dem Patienten Sauerstoff geben (4 - 6l/min).
+	    	ToDo: Menge speichern für Doku?
+			<a onClick ="bookmark('sauerstoff_geben')" href="#bz_messung"  data-role="button" >Weiter</a>
+	 	</div>
+	 </div>
+
+	 <!-- #BZ-Messung -->
+	 <div  data-role="page" id="bz_messung" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	     <h2>Basismaßnahmen einleiten</h2>
+	    </div>
+	    <div data-role="content">
+	    	<h2>BZ-Messung</h2>
+	    	Den Blutzuckerspiegel des Patienten messen.
+	    	<label for="slider-1">Blutzucker in mmol/l</label>
+			<input type="range" name="slider" id="slider-1" value="100" min="0" max="200" />
+
+						<a href="#" id="bz" data-role="button">Weiter</a>
+			<script>
+				$('#bz').click(function(){
+					saveValue('bz_messung', $('#slider-1').val());
+						$.mobile.changePage('#koerpertemperatur');
+				});
+
+			</script>
+	 	</div>
+	 </div>
+
+	 <!-- #koerpertemperatur -->
+	 <div  data-role="page" id="koerpertemperatur" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	     <h2>Basismaßnahmen einleiten</h2>
+	    </div>
+       <div data-role="content">
+	    	<h2>Körpertemperatur messen</h2>
+	    	Messen Sie die Körpertemperatur und notieren Sie den Wert:
+	    	<br />
+	    	<br />
+			<form name = "form_koerpertemperatur">
+		    	<div class= ".switch-container" >
+		    		<label for="flip-a">Körpertemperatur in</label>
+					<select name="slider" id="flip-a" data-role="slider">
+						<option value="Celsius">°Celsius</option>
+						<option value="Fahrenheit">°Fahrenheit</option>
+					</select>
+				</div>
+				<input type="range" name="slider" id="slider-2" value="37" min="35" max="45" step="0.1" data-highlight="true" />
+			</form>
+
+			<script>
+			$(document).ready()
+			{
+				var bm2 = "koerpertemperatur";
+				$( "#flip-a" ).bind( "change", function(event, ui)
+				{
+					if($('#flip-a option:selected').val() == 'Celsius')
+					{
+						$('#slider-2').attr('min',35);
+						$('#slider-2').attr('max',45);
+					 $('#slider-2').attr('value',37);
+					}else
+					{
+						$('#slider-2').attr('min',70);
+						$('#slider-2').attr('max',110);
+						$('#slider-2').attr('value',96);
+					}
+
+					$('slider-2').slider('refresh');
+				});
+			}
+			</script>
+
+
+			<br /><br />
+
+			<a onClick ="saveValuesBm(document.form_koerpertemperatur, bm2)" href="#temperaturmanagement" data-role="button">Weiter</a>
+	 	</div>
+	 </div>
+
+	  <!-- #temperaturmanagement -->
+	 <div  data-role="page" id="temperaturmanagement" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	     <h2>Basismaßnahmen einleiten</h2>
+	    </div>
+	    <div data-role="content">
+	    <h2>Temperaturmanagement</h2>
+	    Körpertemperatur des Patienten weiterhin überwachen.
+	     <h2>Rüstiger Patient: Symptombeginn <5h? </h2>
+			<a onClick ="saveValueBm('temperaturmanagement', 'ja', 'temperaturmanagement')" href="#schneller_transport"  data-role="button">ja</a>
+     		<a onClick ="saveValueBm('temperaturmanagement', 'nein', 'temperaturmanagement')" href="#iv_zugang"  data-role="button" data-theme="e">nein</a>
+	 	</div>
+	 </div>
+
+	 <!-- #schneller_transport -->
+	 <div  data-role="page" id="schneller_transport" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	    </div>
+	    <div data-role="content">
+	    <div class="ui-body ui-body-e">Der Patient ist potentiell trombolysefähig</div>
+	    <h2>Schneller Transport</h2>
+	    Der Patient kann nun transportiert werden.<br />
+	    <img src="../images/apoplex/schneller_transport.jpg" width="30%" />
+	  	<a onClick ="bookmark('schneller_transport')" href="#mitalarmiertes_nef"  data-role="button" >Weiter</a>
+	 	</div>
+	 </div>
+
+	 <!-- #mitalarmiertes_nef -->
+	 <div  data-role="page" id="mitalarmiertes_nef" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	    </div>
+	    <div data-role="content">
+	    	<h2>Mitalarmiertes NEF (Noteinsatzfahrzeug) ggf. im Rendezvouz</h2>
+	    	<p>Ggf. mit NEF gemeinsam zur zentralen Ambulanz bringen.</p>
+	  		<a onClick ="bookmark('mitalarmiertes_nef')" href="#or_erreichbarkeit_mitfahrt"  data-role="button" >Weiter</a>
+	 	</div>
+	 </div>
+
+
+	 <!-- #or_erreichbarkeit_mitfahrt -->
+	 <div  data-role="page" id="or_erreichbarkeit_mitfahrt" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	    </div>
+	    <div data-role="content">
+	        <h2>Wählen Sie eine/mehrere der folgenden Optionen:</h2>
+
+			<form name ="form_or_erreichbarkeit_mitfahrt">
+		  		<fieldset data-role="controlgroup" data-type="vertical">
+				    <input type="checkbox" name="erreichbarkeit" id="form_or_erreichbarkeit_mitfahrt_s1" />
+				    <label for="form_or_erreichbarkeit_mitfahrt_s1">Erreichbarkeit Angehörige für KH ermöglichen</label>
+				    <input type="checkbox" name="mitfahrt" id="form_or_erreichbarkeit_mitfahrt_s2" />
+				    <label for="form_or_erreichbarkeit_mitfahrt_s2">Mitfahrt Angehöriger im RTW/ NEF</label>
+				 </fieldset>
+			</form>
+			<script>
+			var bm3="or_erreichbarkeit_mitfahrt";
+			</script>
+			<a onClick ="saveValuesBm(document.form_or_erreichbarkeit_mitfahrt, bm3)" href="#voranmeldung" data-role="button">Weiter</a>
+	 	</div>
+	 </div>
+
+
+	 <!-- #voranmeldung -->
+	 <div  data-role="page" id="voranmeldung" >
+
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	    </div>
+
+	    <div data-role="content">
+	      <h2>Voranmeldung ZA/ Neurogolie</h2>
+	      Eine Voranmeldung in einer zentralen Ambulanz oder Neurologischen Station veranlassen.
+	  		<a onClick ="bookmark('voranmeldung')" href="#laborblutentnahme"  data-role="button" >Weiter</a>
+	 	</div>
+
+	 </div>
+
+
+		 <!-- #laborblutentnahme -->
+		 <div  data-role="page" id="laborblutentnahme" >
+
+		    <div data-role="header">
+		     <h1>Apoplektischer Insult</h1>
+		     <h2>Laborblutentnahme</h2>
+		    </div>
+
+		    <div data-role="content">
+		      <h2>Möglichkeit der zügigen Blutentnahme prüfen</h2>
+		      <p>Lässt die Situation eine zügige Blutentnahme zu?</p>
+					<a onClick ="saveValueBm('laborblutentnahme', 'möglich', 'laborblutentnahme')" href="#blutentnahme_durchfuehren"  data-role="button">möglich</a>
+	     			<a onClick ="saveValueBm('laborblutentnahme', 'nicht möglich', 'laborblutentnahme')" href="#iv_zugang"  data-role="button" data-theme="e">nicht möglich</a>
+		 	</div>
+
+		 </div>
+
+		 	 <!-- #blutentnahme_durchfuehren -->
+		 <div  data-role="page" id="blutentnahme_durchfuehren" >
+
+		    <div data-role="header">
+		     <h1>Apoplektischer Insult</h1>
+		     <h2>Laborblutentnahme</h2>
+		    </div>
+
+		    <div data-role="content">
+		      <h2>Blutentnahme durchführen:rotes, grünes, orangendes Röhrchen</h2>
+		      Die Blutentnahme beim Patienten durchführen. Dazu rotes, grünes und orangendes Röhrchen verwenden.<br />
+		      <img src="../images/apoplex/laborblutentnahme.jpg" width="30%" />
+		       <img src="../images/apoplex/laborblutentnahme2.jpg" width="30%" />
+		      <h2>NEF vor Ort</h2>
+		      Ist ein Noteinsatzfahrzeug (NEF) vor Ort?
+				<a onClick ="saveValueBm('blutentnahme_durchfuehren', 'ja', 'blutentnahme_durchfuehren')" href="#vorrausschicken_mit_laborblut"  data-role="button">ja</a>
+	     		<a onClick ="saveValueBm('blutentnahme_durchfuehren', 'nein', 'blutentnahme_durchfuehren')" href="#transport_des_laborbluts"  data-role="button" data-theme="e">nein</a>
+		 	</div>
+
+		 </div>
+
+		 <!-- #vorrausschicken_mit_laborblut -->
+		 <div  data-role="page" id="vorrausschicken_mit_laborblut" >
+
+		    <div data-role="header">
+		     <h1>Apoplektischer Insult</h1>
+		     <h2>Laborblutentnahme</h2>
+		    </div>
+
+		    <div data-role="content">
+		      <h2>Vorausshicken mit Laborblut und Versichertenkarte</h2>
+		      Falls NEF vor Ort, die Blutproben und die Versichertenkarte des Patienten mit dem NEF vorausschicken.
+		  		<a onClick ="bookmark('vorrausschicken_mit_laborblut')" href="#iv_zugang"  data-role="button" >Weiter</a>
+		 	</div>
+
+
+		 </div>
+
+		 <!-- #transport_des_laborbluts -->
+		 <div  data-role="page" id="transport_des_laborbluts" >
+
+		    <div data-role="header">
+		     <h1>Apoplektischer Insult</h1>
+		     <h2>Laborblutentnahme</h2>
+		    </div>
+
+		    <div data-role="content">
+		      <h2>Transport des Laborbluts durch RTW</h2>
+		      Die Blutproben des Patienten im RTW transportieren.
+		  		<a onClick ="bookmark('transport_des_laborbluts')" href="#iv_zugang"  data-role="button" >Weiter</a>
+		 	</div>
+
+		 </div>
+
+	 <!-- #iv_zugang -->
+	 <div  data-role="page" id="iv_zugang" >
+
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	    </div>
+
+	    <div data-role="content">
+	      <h2>i.v. Zugang legen und kristalloide Infusion</h2>
+	        <img src="../images/apoplex/ivzugang.jpg" width="50%" /><br />
+	      Intravenösen Zugang beim Patienten legen und kristalloide Infusionen verabreichen.
+	  		<a onClick ="bookmark('iv_zugang')" href="#rr2"  data-role="button" >Weiter</a>
+	 	</div>
+
+
+	 </div>
+
+
+	<!-- #rr2 -->
+	 <div  data-role="page" id="rr2" >
+
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	    </div>
+
+	    <div data-role="content">
+	      <h2>RR</h2>
+	      Blutdruckmessung beim Patienten durchführen.
+
+	  	 <h2>RR < 130 mmHg syst</h2>
+		      Liegt der Blutdruck unter 130 mmHg syst?
+				<a onClick ="saveValueBm('rr2', 'ja', 'rr2')" href="#kristalloide_infusion"  data-role="button">ja</a>
+	     		<a onClick ="saveValueBm('rr2', 'nein', 'rr2')" href="#rr3"  data-role="button" data-theme="e">nein</a>
+		</div>
+
+	 </div>
+
+	 	<!-- #kristalloide_infusion -->
+	 <div  data-role="page" id="kristalloide_infusion" >
+
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	    </div>
+
+	    <div data-role="content">
+	      <h2>Kristalloide Infusion zügig infundieren 500 - 1000 ml</h2>
+	      Bei einem Blutdruck unter 130 mmHg syst zügig kristalloide Infusion infundieren.
+
+		  <h2>RR > 220/140 mmHg oder < 130 mmHg bei mind. 2 facher Messung oder GCS < 11</h2>
+		      Liegt der Blutdruck des Patienten über 220/140 mmHg oder liegt er unter 130 mmHg bei mind. 2 facher Messung oder liegt der GCS-Wert (Glasgow Coma Scale) unter 11?
+				<a onClick ="saveValueBm('kristalloide_infusion', 'ja', 'kristalloide_infusion')" href="#notarzt_rufen2"  data-role="button">ja</a>
+	     		<a onClick ="saveValueBm('kristalloide_infusion', 'nein', 'kristalloide_infusion')" href="#bettlaegrigkeit"  data-role="button" data-theme="e">nein</a>
+		</div>
+
+	 </div>
+
+	 <!-- #rr3 -->
+	 <div  data-role="page" id="rr3" >
+
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	    </div>
+
+	    <div data-role="content">
+	      <h2>RR</h2>
+	      Blutdruckmessung beim Patienten durchführen.
+	  	 <h2>RR > 220/140 mmHg oder < 130 mmHg bei mind. 2 facher Messung oder GCS < 11</h2>
+		      Liegt der Blutdruck des Patienten über 220/140 mmHg oder liegt er unter 130 mmHg bei mind. 2 facher Messung oder liegt der GCS-Wert (Glasgow Coma Scale) unter 11?
+				<a onClick ="saveValueBm('rr3', 'ja', 'rr3')" href="#notarzt_rufen2"  data-role="button">ja</a>
+	     		<a onClick ="saveValueBm('rr3', 'nein', 'rr3')" href="#bettlaegrigkeit"  data-role="button" data-theme="e">nein</a>
+		 </div>
+
+	 </div>
+
+	 <!-- #notarzt_rufen2 -->
+	 <div  data-role="page" id="notarzt_rufen2" >
+
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	    </div>
+
+	   <div data-role="content">
+	       <h2>Notarzt rufen</h2>
+		    <img src="../images/apoplex/notarzt.jpg" width="30%" />
+		    <div class="ui-body ui-body-e">
+		    	<p>Notarzt rufen oder interne bekannte Rufnummer wählen.<br /><br />
+		    		Deutschland: <a href="tel:"112">112</a></br>
+		    		USA: <a href="tel:"911">911</a>
+		   		 </p>
+		    </div>
+	      <h2>Patient bereits vor Ereignis dauerhaft bettlägrig?</h2>
+		  <a onClick ="saveValueBm('notarzt_rufen2', 'ja', 'notarzt_rufen2')" href="#transport_klinik_oder_za"  data-role="button">ja</a>
+	      <a onClick ="saveValueBm('notarzt_rufen2', 'nein', 'notarzt_rufen2')" href="#transport_za"  data-role="button" data-theme="e">nein</a>
+	   </div>
+
+	 </div>
+
+	 <!-- #bettlaegrigkeit -->
+	 <div  data-role="page" id="bettlaegrigkeit" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	    </div>
+	    <div data-role="content">
+	      <h2>Bettlägrigkeit überprüfen</h2>
+	      Patient auf vorliegende Bettlägrigkeit prüfen.
+	      <h2>Patient bereits vor Ereignis dauerhaft bettlägrig?</h2>
+		  <a onClick ="saveValueBm('bettlaegrigkeit', 'ja', 'bettlaegrigkeit')" href="#transport_klinik_oder_za"  data-role="button">ja</a>
+	      <a onClick ="saveValueBm('bettlaegrigkeit', 'nein', 'bettlaegrigkeit')" href="#transport_za"  data-role="button" data-theme="e">nein</a>
+	    </div>
+	 </div>
+
+	  <!-- #transport_klinik_oder_za -->
+	 <div  data-role="page" id="transport_klinik_oder_za" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	    </div>
+	    <div data-role="content">
+	      <h2>Transport in med. Klinik oder zur ZA</h2>
+	      	      Transport zur medizinischen Klinik oder zur zentralen Ambulanz anordnen.
+	     <a onClick ="bookmark('transport_klinik_oder_za')" rel="external" href="Apoplex_Report.html#beenden"  data-role="button" >Prozess abschließen</a>
+	    </div>
+	 </div>
+
+	 <!-- #transport_za -->
+	 <div  data-role="page" id="transport_za" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	    </div>
+	    <div data-role="content">
+	      <h2>Transport zur ZA</h2>
+	      Transport zur zentralen Ambulanz anordnen.
+	      <a onClick ="bookmark('transport_za')" rel="external" href="Apoplex_Report.html#beenden" data-role="button" >Prozess abschließen</a>
+	    </div>
+	 </div>
+
+
+	</body>
+	</html>

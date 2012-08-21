@@ -1,0 +1,1543 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+ 	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="content-type" content="application/xhtml+xml;  charset=utf-8" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+		<link rel="stylesheet" type="text/css" href="../scripts/Stylesheet.css">
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="../scripts/localstorage.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+
+		<title>Liverpool Care Pathway</title>
+ </head>
+ <body>
+
+	<!-- Page 1:Start -->
+	<div data-role="page" id="index">
+
+	    <div data-role="header">
+	        <h1>LCP(1/15)</h1>
+	           <a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+	    </div>
+	    <div data-role="content">
+		    <p>
+			    The LCP is an integrated care pathway that is used at the bedside to drive up sustained quality of the dying in the last hours and days of life.
+				It is a means to transfer the best quality for care of the dying from the hospice movement into other clinical areas,
+				so that wherever the person is dying there can be an equitable model of care.<br />
+				The LCP has been implemented into hospitals,
+				care homes, in the individuals own home / community and into the hospice.<br /><br />
+				The LCP is not the answer to all our needs for care of the dying but is a step in the right direction.
+				It is recommended as a best practice model, most recently, by the Department of Health in the UK.<br />
+			</p>
+
+			<h2>LCP Structure</h2>
+			<ol>
+				<li><a href="#index">Overview</a></li>
+				<li><a href="#check_circumstances">Check Circumstances</a></li>
+				<li><a href="#confirm_desired_place_of_death">Confirm desired place of death</a></li>
+				<li>Perform Assessment for Symptom Management</li>
+				<ul>
+					<li><a href="#check_need_for_sc_med">Check need for subcutaneos medication</a></li>
+					<li><a href="#assess_pain">Pain assessment prompt</a></li>
+					<li><a href="#check_nausea_and_vomiting">Nausea and vomiting prompot</a></li>
+					<li><a href="#check_oral_mucosa">Oral assessment prompt</a></li>
+					<li><a href="#check_dyspnoea_present">Dyspnoea</a></li>
+					<li><a href="#check_if_anxiety_or_insomnia">Anxiety or insomnia</a></li>
+					<li><a href="#constipation">Constipation</a></li>
+					<li><a href="#check_restlessness_and_agitation">Restlessness, Agitation, and/or anxiety</a></li>
+					<li><a href="#check_if_breathing_present">Noisy respirations</a></li>
+					<li><a href="#check_potential_for_seizure">Crisis medications</a></li>
+				</ul>
+				<li><a href="LCP_Report.html#end" rel="external" >Summary</a></li>
+			</ol>
+
+	   		<a href="#check_circumstances" data-role="button">Start LCP</a>
+	 	</div>
+
+	 	<div data-role="footer" data-position="fixed">
+	        <h1>Copyright 2012</h1>
+	    </div>
+	 </div>
+
+	 	<!-- Page 1:#check_circumstances -->
+	 <div data-role="page" id="check_circumstances">
+
+	    <div data-role="header">
+	   		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+	        <h1>LCP(2/15)</h1>
+	        <h2>Check circumstances</h2>
+
+	        <a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+	    </div>
+
+	    <div data-role="content">
+	    		<div class="ui-body ui-body-e">Patient is dying</div>
+
+				<h2>Check circumstances</h2>
+				<p>Check the patient if the following circumstances do apply:</p>
+
+			<form name="form_check_circumstances">
+				<fieldset id="sympt" data-role="controlgroup" data-type="vertical"  >
+			    <input class="circumstances" type="checkbox" name="circumstances" id="form_check_circumstances_s1" />
+			    <label for="form_check_circumstances_s1">Profoundly weak/essentially bed-bound</label>
+
+			    <input class="circumstances" type="checkbox" name="circumstances" id="form_check_circumstances_s2" />
+			    <label for="form_check_circumstances_s2">Semi-comatose, drowsy</label>
+
+			    <input class="circumstances" type="checkbox" name="circumstances" id="form_check_circumstances_s3" />
+			    <label for="form_check_circumstances_s3">Disinterested in food & fluid</label>
+
+			    <input class="circumstances" type="checkbox" name="circumstances" id="form_check_circumstances_s4" />
+			    <label for="form_check_circumstances_s4">Difficulty swallowing</label>
+				</fieldset>
+			</form>
+
+			<div id="placeholder" class="ui-body ui-body-e">Please choose!</div>
+
+			<script>
+				$(document).ready()
+				{
+					var bml1 = 'check_circumstances';
+					$('.circumstances').click(function()
+					{
+						$('<a onClick ="saveCheckValuesBmL(document.form_check_circumstances, bml1)" href="#confirm_desired_place_of_death" data-role="button">Proceed</a>').insertAfter('#placeholder').button();
+						$('#placeholder').remove();
+					});
+				};
+
+			</script>
+	 	</div>
+	 </div>
+
+	 <!--  START SUBPROCESS Confirm desired place of death -->
+
+	 <!-- Page #confirm_desired_place_of_death -->
+	 <div data-role="page" id="confirm_desired_place_of_death">
+
+	    <div data-role="header">
+	    	<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+	        <h1>LCP(3/15)</h1>
+	        <h2>Confirm desired place of death</h2>
+	        <a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+	    </div>
+
+	    <div data-role="content">
+			<h2>Confirm desired place of death</h2>
+
+			<a onClick ="saveValueBmL('place_of_death', 'Palliative Care Unit', 'confirm_desired_place_of_death')" href="#inform_client_about_criteria"  data-role="button" >Palliative Care Unit</a>
+			<a onClick ="saveValueBmL('place_of_death', 'Home', 'confirm_desired_place_of_death')" href="#confirm_home_care"  data-role="button" >Home</a>
+	 	</div>
+	 </div>
+
+	 <!-- Page #confirm_home_care -->
+	 <div data-role="page" id="confirm_home_care">
+
+	    <div data-role="header">
+	    	<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+	        <h1>LCP(3/15)</h1>
+	        <h2>Confirm desired place of death</h2>
+	        <a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+	    </div>
+	    <div data-role="content">
+			<h2>Confirm home care</h2>
+
+			<a onClick ="bookmarkL('confirm_home_care')" href="#check_need_for_sc_med"  data-role="button" >Proceed</a>
+	 	</div>
+	 </div>
+
+	<!-- Page #inform_client_about_criteria -->
+	 <div data-role="page" id="inform_client_about_criteria">
+
+	    <div data-role="header">
+	    	<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+	        <h1>LCP(3/15)</h1>
+	        <h2>Confirm desired place of death</h2>
+	        <a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+	    </div>
+	    <div data-role="content">
+			<h2>Inform client about no CPR admission criteria</h2>
+			<a onClick ="bookmarkL('inform_client_about_criteria')" href="#check_bed_availability"  data-role="button" >Proceed</a>
+	 	</div>
+	 </div>
+
+	 	<!-- Page #check_bed_availability -->
+	 <div data-role="page" id="check_bed_availability">
+
+	    <div data-role="header">
+	    	<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+	        <h1>LCP(3/15)</h1>
+	        <h2>Confirm desired place of death</h2>
+	        <a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+	    </div>
+	    <div data-role="content">
+			<h2>Check bed availability/ acceptance for admission by Palliative Care Medical Officer</h2>
+
+			<div class="ui-body ui-body-e">
+				   <img class="doc" src="../images/document.png" width="15%">
+				<h3>Variance Sheet</h3>
+			</div>
+
+			<a onClick ="saveValueBmL('bed_availability', 'available', 'check_bed_availability')" href="#arrange_transfer_to_pcu"  data-role="button" >Bed available</a>
+			<a onClick ="saveValueBmL('bed_availability', 'not available', 'check_bed_availability')" href="#no_bed_available"  data-role="button" >No bed available</a>
+
+	 	</div>
+	 </div>
+
+	 <!-- Page #arrange_transfer_to_pcu -->
+	 <div data-role="page" id="arrange_transfer_to_pcu">
+
+	    <div data-role="header">
+	    	<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+	        <h1>LCP(3/15)</h1>
+	        <h2>Confirm desired place of death</h2>
+	        <a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+	    </div>
+	    <div data-role="content">
+			<h2>Arrange transfer to PCU</h2>
+			<a onClick ="bookmarkL('arrange_transfer_to_pcu')" href="#check_need_for_sc_med"  data-role="button" >Proceed</a>
+	 	</div>
+	 </div>
+
+	 <!-- Page #no_bed_available -->
+	 <div data-role="page" id="no_bed_available">
+
+	    <div data-role="header">
+	    	<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+	        <h1>LCP(3/15)</h1>
+	        <h2>Confirm desired place of death</h2>
+	        <a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+	    </div>
+	    <div data-role="content">
+			<a onClick ="saveValueBmL('no_bed_available', 'Client wants to go to hospital', 'no_bed_available')" href="#arrange_transfer_to_ac_facility"  data-role="button" >Client wants to go to hospital</a>
+			<a onClick ="saveValueBmL('no_bed_available', 'Client wants to stay at home until bed is available on PCU', 'no_bed_available')" href="#put_client_on_waiting_list"  data-role="button" >Client wants to stay at home until bed is available on PCU</a>
+
+	 	</div>
+	 </div>
+
+	 <!-- Page #arrange_transfer_to_ac_facility -->
+	 <div data-role="page" id="arrange_transfer_to_ac_facility">
+
+	    <div data-role="header">
+	    	<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+	        <h1>LCP(3/15)</h1>
+	        <h2>Confirm desired place of death</h2>
+	        <a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+	    </div>
+	    <div data-role="content">
+			<h2>Arrange transfer to Acute Care Facility</h2>
+			<a  href="#complete_variance_sheet"  data-role="button">Proceed</a>
+	 	</div>
+	 </div>
+
+	 <!-- Page #put_client_on_waiting_list -->
+	 <div data-role="page" id="put_client_on_waiting_list">
+
+	    <div data-role="header">
+	    	<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+	        <h1>LCP(3/15)</h1>
+	        <h2>Confirm desired place of death</h2>
+	        <a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+	    </div>
+	    <div data-role="content">
+			<h2>Put client's name on PCU waiting list</h2>
+
+			<h2>Confirm home care</h2>
+			<a onClick ="bookmarkL('put_client_on_waiting_list')" href="#complete_variance_sheet"  data-role="button" >Proceed</a>
+	 	</div>
+	 </div>
+
+	 	 <!-- Page #complete_variance_sheet -->
+	 <div data-role="page" id="complete_variance_sheet">
+
+	    <div data-role="header">
+	    	<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+	        <h1>LCP(3/15)</h1>
+	        <h2>Confirm desired place of death</h2>
+	        <a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+	    </div>
+	    <div data-role="content">
+			<h2>Complete variance sheet</h2>
+			<div class="ui-body ui-body-e">
+			   <img class="doc" src="../images/document.png" width="15%">
+				<h3>Variance Sheet</h3>
+			</div>
+			<a onClick ="bookmarkL('complete_variance_sheet')" href="#gp_has_to_be_informed"  data-role="button" >Proceed</a>
+	 	</div>
+	 </div>
+
+	 <!-- Page #gp_has_to_be_informed -->
+	 <div data-role="page" id="gp_has_to_be_informed">
+
+	    <div data-role="header">
+	    	<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+	        <h1>LCP(3/15)</h1>
+	        <h2>Confirm desired place of death</h2>
+	        <a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+	    </div>
+	    <div data-role="content">
+			<h2>GP has to be informed of plan</h2>
+			<a onClick ="bookmarkL('gp_has_to_be_informed')" href="#check_need_for_sc_med"  data-role="button" >Proceed</a>
+	 	</div>
+	 </div>
+
+	 <!-- End Subprocess check desired place of death -->
+
+	 <!-- Start Subprocess Perform Assessment for Symptom Management  -->
+
+		<!-- Start Subprocess check_need_for_sc_med -->
+
+			 <!-- Page #check_need_for_sc_med -->
+			 <div data-role="page" id="check_need_for_sc_med">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(5/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+				<div data-role="content">
+					<h2>Check need for subcutaneous medication </h2>
+
+				<form name="form_check_need_for_sc_med">
+					<fieldset id="sc_medications" data-role="controlgroup" data-type="vertical" >
+
+						<input class="circumstances" type="checkbox" name="circumstances" id="check_need_for_sc_med_s1" />
+						<label for="check_need_for_sc_med_s1">Unable to Swallow</label>
+
+						<input class="circumstances" type="checkbox" name="circumstances" id="check_need_for_sc_med_s2" />
+						<label for="check_need_for_sc_med_s2">Intestinal obstruction</label>
+
+						<input class="circumstances"type="checkbox" name="circumstances" id="check_need_for_sc_med_s3" />
+						<label for="check_need_for_sc_med_s3">Painful mouth, throat and/or oesophageal lesion</label>
+
+						<input class="circumstances"type="checkbox" name="circumstances" id="check_need_for_sc_med_s4" />
+						<label for="check_need_for_sc_med_s4">Persistent nausea and vomiting</label>
+
+						<input class="circumstances"type="checkbox" name="circumstances" id="check_need_for_sc_med_s5" />
+						<label for="check_need_for_sc_med_s5">Decreased level of consciousness</label>
+
+						<input class="circumstances"type="checkbox" name="circumstances" id="check_need_for_sc_med_s6" />
+						<label for="check_need_for_sc_med_s6">Malabsorbtion</label>
+
+						<input class="circumstances"type="checkbox" name="circumstances" id="check_need_for_sc_med_s7" />
+						<label for="check_need_for_sc_med_s7">Unsatisfactory response to oral medication</label>
+
+					</fieldset>
+				</form>
+
+					<div id="sc_medication_placeholder" class="ui-body ui-body-e">Please choose! </div>
+
+					<script>
+						$(document).ready()
+						{
+							var bml2 = 'check_need_for_sc_med';
+							$('.circumstances').click(function()
+							{
+								$('<a onClick ="saveCheckValuesBmL(document.form_check_need_for_sc_med, bml2)" href="#discuss_conditions_with_medical_officer" data-role="button">Proceed</a>').insertAfter('#sc_medication_placeholder').button();
+								$('#sc_medication_placeholder').remove();
+							});
+						};
+					</script>
+				</div>
+			 </div>
+
+			 <!-- Page #discuss_conditions_with_medical_officer -->
+			 <div data-role="page" id="discuss_conditions_with_medical_officer">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(5/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+				<div data-role="content">
+					<h2>Discuss condition with Medical Officer. re: subcutaneous medication requirements</h2>
+					<a onClick ="bookmarkL('discuss_conditions_with_medical_officer')" href="#obtain_original_med_auth"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+			 <!-- Page #obtain_original_med_auth -->
+			 <div data-role="page" id="obtain_original_med_auth">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(5/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+				<div data-role="content">
+					<h2>Obtain original medication authority</h2>
+					<a onClick ="bookmarkL('obtain_original_med_auth')" href="#obtain_med_from_pharmacy"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+			 <!-- Page #med_from_pharmacy -->
+			 <div data-role="page" id="obtain_med_from_pharmacy">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(5/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+				<div data-role="content">
+					<h2>Obtain medication from pharmacy</h2>
+					<a  href="#provide_resources_and_education"  data-role="button">Proceed</a>
+				</div>
+			 </div>
+
+			 <!-- Page #provide_resources_and_education -->
+			 <div data-role="page" id="provide_resources_and_education">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(5/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+				<div data-role="content">
+					<h2>Provide resources and education on medication administration to carers</h2>
+					<a onClick ="bookmarkL('provide_resources_and_education')" href="#administer_sc_med_as_prescribed"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+			 <!-- Page #administer_sc_med_as_prescribed -->
+			 <div data-role="page" id="administer_sc_med_as_prescribed">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(5/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+				<div data-role="content">
+					<h2>Administer subcutaneous medication as prescribed</h2>
+
+				<script>
+
+				if(checkIsset('seek_advice_pc_team'))
+				{
+					document.write('<a  href="#client_settled" data-rel="dialog"  data-role="button">Proceed</a>');
+				}else{
+					document.write('<a  href="#assess_pain"  data-role="button">Proceed</a>');
+				}
+
+				</script>
+
+				</div>
+			 </div>
+
+		<!-- END Subprocess check_need_for_sc_med -->
+
+
+		<!-- Check need for sc med overview -->
+
+		 <!-- Overview #check_need_for_sc_med_overview -->
+			 <div data-role="page" id="check_need_for_sc_med_overview">
+
+			 	<div data-role="header">
+					<h2>Check need for sc medication overview</h2>
+				</div>
+
+				<div data-role="content">
+
+					<ol>
+					<li>
+						<p>Check need for subcutaneous medication </p>
+
+
+					<form name="form_check_need_for_sc_med_overview">
+						<fieldset id="sc_medications" data-role="controlgroup" data-type="vertical" >
+
+							<input class="circumstances" type="checkbox" name="circumstances" id="check_need_for_sc_med_s1" />
+							<label for="check_need_for_sc_med_s1">Unable to Swallow</label>
+
+							<input class="circumstances" type="checkbox" name="circumstances" id="check_need_for_sc_med_s2" />
+							<label for="check_need_for_sc_med_s2">Intestinal obstruction</label>
+
+							<input class="circumstances"type="checkbox" name="circumstances" id="check_need_for_sc_med_s3" />
+							<label for="check_need_for_sc_med_s3">Painful mouth, throat and/or oesophageal lesion</label>
+
+							<input class="circumstances"type="checkbox" name="circumstances" id="check_need_for_sc_med_s4" />
+							<label for="check_need_for_sc_med_s4">Persistent nausea and vomiting</label>
+
+							<input class="circumstances"type="checkbox" name="circumstances" id="check_need_for_sc_med_s5" />
+							<label for="check_need_for_sc_med_s5">Decreased level of consciousness</label>
+
+							<input class="circumstances"type="checkbox" name="circumstances" id="check_need_for_sc_med_s6" />
+							<label for="check_need_for_sc_med_s6">Malabsorbtion</label>
+
+							<input class="circumstances"type="checkbox" name="circumstances" id="check_need_for_sc_med_s7" />
+							<label for="check_need_for_sc_med_s7">Unsatisfactory response to oral medication</label>
+
+						</fieldset>
+					</form>
+					</li>
+
+						<li><p>Discuss condition with Medical Officer. re: subcutaneous medication requirements</p></li>
+
+					<li>	<p>Obtain original medication authority</p></li>
+
+						<li><p>Obtain medication from pharmacy</p></li>
+
+					<li>	<p>Provide resources and education on medication administration to carers</p></li>
+
+					<li>	<p>Administer subcutaneous medication as prescribed</p></li>
+				<a id="save_sc_med" data-rel="back" onClick="saveValues(document.form_check_need_for_sc_med_overview)" href="#" data-role="button">Save and close</a>
+				</div>
+
+			 </div>
+
+			 <!--  End Check need for sc med overview -->
+
+		<!-- Start Subprocess Pain Assessment Prompt -->
+
+		<!-- Page #assess_pain -->
+			<div data-role="page" id="assess_pain">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(6/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+				<div data-role="content">
+					<h2>Assess Pain</h2>
+			<a onClick ="saveValueBmL('assess_pain', 'Client is in pain', 'assess_pain')" href="#check_current_oral_opioid_dose"  data-role="button" >Client is in pain</a>
+			<a onClick ="saveValueBmL('assess_pain', 'Client is not in pain', 'assess_pain')" href="#check_current_oral_opioid_dose"  data-role="button" >Client is not in pain</a>
+				</div>
+			 </div>
+
+			 <!-- Page #check_current_oral_opioid_dose -->
+			<div data-role="page" id="check_current_oral_opioid_dose">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(6/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+				</div>
+				<div data-role="content">
+					<h2>Check current oral opioid dose</h2>
+
+					<a onClick ="bookmarkL('check_current_oral_opioid_dose')" href="#check_ability_to_swallow"  data-role="button" >Prescribed oral opioid</a>
+					<a onClick ="bookmarkL('check_current_oral_opioid_dose')" href="#check_renal_and_liver_function"  data-role="button" >Opioid naive</a>
+
+				</div>
+			 </div>
+
+			  <!-- Page #check_ability_to_swallow -->
+			<div data-role="page" id="check_ability_to_swallow">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(6/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check ability to swallow</h2>
+			<a onClick ="saveValueBmL('swallow', 'can swallow', 'check_ability_to_swallow')" href="#check_titration_inf"  data-role="button" >can swallow</a>
+			<a onClick ="saveValueBmL('swallow', 'cannot swallow', 'check_ability_to_swallow')" href="#consider_sc_med"  data-role="button" >cannot swallow</a>
+
+				</div>
+			 </div>
+
+			<!-- Page #check_renal_and_liver_function -->
+			<div data-role="page" id="check_renal_and_liver_function">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(6/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check if normal renal and liver function</h2>
+					<a onClick ="bookmarkL('check_renal_and_liver_function')" href="#check_ability_to_swallow"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+			<!-- Page #check_titration_inf -->
+			<div data-role="page" id="check_titration_inf">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(6/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check titration information, continue oral opioid</h2>
+
+					<a onClick ="bookmarkL('check_titration_inf')" href="#consider_sc_med"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+			<!-- Page #consider_sc_med -->
+			<div data-role="page" id="consider_sc_med">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(6/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Consider subcutaneous medication (PRN if patient can swallow)</h2>
+					<a href="#check_need_for_sc_med_overview"  data-theme="e" data-rel="dialog" data-inline="true" data-role="button" >Show sc medication overview</a>
+					<a onClick ="bookmarkL('consider_sc_med')" href="#check_liver_function"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+			<!-- Page check_liver_function -->
+			<div data-role="page" id="check_liver_function">
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(6/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check renal and liver function</h2>
+
+			<a onClick ="saveValueBmL('liver', 'Abnormal renal and liver function', 'check_liver_function')" href="#consider_alt_opioid"  data-role="button" >Abnormal renal and liver function</a>
+			<a onClick ="saveValueBmL('liver', 'Normal renal and liver function', 'check_liver_function')" href="#arrange_morphine_med"  data-role="button" >Normal renal and liver function</a>
+
+				</div>
+			 </div>
+
+			 <!-- Page #consider_alt_opioid -->
+			<div data-role="page" id="consider_alt_opioid">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(6/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Consider alternative opioid (oxycodone, hydromorphone)</h2>
+
+					<a onClick ="bookmarkL('consider_alt_opioid')" href="#evaluate_pain_control"  data-role="button" >Proceed</a>
+
+				</div>
+			 </div>
+
+			 <!-- Page #arrange_morphine_med -->
+			<div data-role="page" id="arrange_morphine_med">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(6/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Arrange morphine medication authority - regular 4th hourly or PRN if client not currently in pain</h2>
+
+					<a onClick ="bookmarkL('arrange_morphine_med')" href="#evaluate_pain_control"  data-role="button" >Proceed</a>
+
+				</div>
+			 </div>
+
+		    <!-- Page #evaluate_pain_control -->
+			<div data-role="page" id="evaluate_pain_control">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(6/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Evaluate pain control</h2>
+
+					<a onClick ="bookmarkL('evaluate_pain_control')" href="#consider_other_causes"  data-role="button" >Client is in pain</a>
+
+					<script>
+						if(checkIsset('and_assess_pain_and_non_pharm_ways'))
+						{
+							document.write('<a  href="#consider_non_pharmacological_ways" data-role="button">Client is not in pain</a>');
+						}else{
+							document.write('<a  href="#check_nausea_and_vomiting" data-role="button">Client is not in pain</a>');
+						}
+					</script>
+				</div>
+			 </div>
+
+			<!-- Page #consider_other_causes -->
+			<div data-role="page" id="consider_other_causes">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(6/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Consider other causes of distress and pain</h2>
+
+					<a onClick ="bookmarkL('consider_other_causes')" href="#consider_consulting_pc_team"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+			 <!-- Page #consider_consulting_pc_team -->
+			<div data-role="page" id="consider_consulting_pc_team">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(6/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Consider consulting palliative care team for advice</h2>
+
+
+					<script>
+					if(checkIsset('and_assess_pain_and_non_pharm_ways'))
+					{
+						document.write('<a  href="#consider_non_pharmacological_ways" data-role="button">Proceed</a>');
+					}else{
+						document.write('<a  href="#check_nausea_and_vomiting" data-role="button">Proceed</a>');
+					}
+
+					</script>
+				</div>
+			 </div>
+
+		<!-- END Subprocess Pain Assessment Prompt -->
+
+		<!-- Start Subprocess Nausea and vomiting prompt-->
+
+		 <!-- Page #check_nausea_and_vomiting -->
+			<div data-role="page" id="check_nausea_and_vomiting">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(7/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check nausea and vomiting</h2>
+
+			<a onClick ="saveValueBmL('vomiting', 'Client has nausea and/ or vomiting', 'check_nausea_and_vomiting')" href="#med1"  data-role="button" >Client has nausea and/ or vomiting</a>
+			<a onClick ="saveValueBmL('vomiting', 'Client has neither nausea nor vomiting', 'check_nausea_and_vomiting')" href="#med2"  data-role="button" >Client has neither nausea nor vomiting</a>
+
+				</div>
+			 </div>
+
+		<!-- Page #med1 -->
+			<div data-role="page" id="med1">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(7/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Arrange antiemetics suggest Metoclopramide 10mg fourth hourly sc regular OR If persists: Add Haloperidol 0.5mg bd sc</h2>
+
+					<a onClick ="bookmarkL('med1')" href="#check_persistence"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+
+		<!-- Page #med2 -->
+			<div data-role="page" id="med2">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(7/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>PRN medication: Metoclopramide 10mg fourth 4th hourly sc PRN OR Haloperidol 0.5mg-1mg 4th hourly subcutaneous PRN</h2>
+
+					<a onClick ="bookmarkL('med2')" href="#check_oral_mucosa"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+		<!-- Page #check_persistence -->
+			<div data-role="page" id="check_persistence">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(7/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check persistence</h2>
+
+					<a onClick ="bookmarkL('check_persistence')" href="#check_oral_mucosa"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+		<!-- Page #contact_pc_team_and_consider_bowl_obsctruction -->
+			<div data-role="page" id="contact_pc_team_and_consider_bowl_obsctruction">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(7/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Contact Palliative Care Team to consider other treatments</h2>
+
+					<h2>Consider possible bowel obstruction</h2>
+
+					<a onClick ="bookmarkL('contact_pc_team_and_consider_bowl_obsctruction')" href="#check_oral_mucosa"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+		<!-- END Subprocess Nausea and vomiting prompt-->
+
+		<!-- Start Subprocess Oral assessment prompt-->
+
+		<!-- Page #check_oral_mucosa -->
+			<div data-role="page" id="check_oral_mucosa">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(8/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check oral mucosa</h2>
+			<a onClick ="saveValueBmL('oral_mucosa', 'Oral candidiasis (thrush) present', 'check_oral_mucosa')" href="#arrange_nystatin_drops"  data-role="button" >Oral candidiasis (thrush) present</a>
+			<a onClick ="saveValueBmL('oral_mucosa', 'Dry mouth  +/- stomatitis or no symptoms present', 'check_oral_mucosa')" href="#give_spray_bottle_of_water"  data-role="button" >Dry mouth  +/- stomatitis or no symptoms present</a>
+
+
+				</div>
+			 </div>
+
+			<!-- Page #arrange_nystatin_drops -->
+			<div data-role="page" id="arrange_nystatin_drops">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(8/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Arrange Nystatin drops 1ml QID</h2>
+
+					<a onClick ="bookmarkL('arrange_nystatin_drops')" href="#give_spray_bottle_of_water"  data-role="button" >Proceed</a>
+
+				</div>
+			 </div>
+
+			<!-- Page #give_spray_bottle_of_water -->
+			<div data-role="page" id="give_spray_bottle_of_water">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(8/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Give spray bottle of water / provide mouth care education</h2>
+
+					<a onClick ="bookmarkL('give_spray_bottle_of_water')" href="#sodium_bicarbonate_mouthwash"  data-role="button" >Proceed</a>
+
+				</div>
+			 </div>
+
+			 <!-- Page #sodium_bicarbonate_mouthwash -->
+			<div data-role="page" id="sodium_bicarbonate_mouthwash">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(8/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Sodium bicarbonate mouthwash - gargled or on swabs regularly</h2>
+
+					<a onClick ="bookmarkL('sodium_bicarbonate_mouthwash')" href="#check_dyspnoea_present"  data-role="button" >Proceed</a>
+
+				</div>
+			 </div>
+
+		<!-- END Subprocess Oral assessment prompt-->
+
+		<!-- Start Subprocess Dyspnoea-->
+
+			<!-- Page #check_dyspnoea_present -->
+			<div data-role="page" id="check_dyspnoea_present">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(9/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check dyspnoea present</h2>
+
+				<a onClick ="saveValueBmL('dyspnoea', 'Client is currently taking opioid', 'check_dyspnoea_present')" href="#increase_opioid_dose"  data-role="button" >Client is currently taking opioid</a>
+				<a onClick ="saveValueBmL('dyspnoea', 'Client is opioid naive', 'check_dyspnoea_present')" href="#give_low_dose_opioid"  data-role="button" >Client is opioid naive</a>
+
+				</div>
+			 </div>
+
+			 <!-- Page #increase_opioid_dose -->
+			<div data-role="page" id="increase_opioid_dose">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(9/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Increase fixed scheduled opioid dose by 10-50% according to symptom relief and side effects</h2>
+					<a onClick ="bookmarkL('increase_opioid_dose')" href="#check_if_related_anxiety"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+			 <!-- Page #give_low_dose_opioid -->
+			<div data-role="page" id="give_low_dose_opioid">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(9/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Give low dose opiod subcutaneously PRN +/- regularly</h2>
+
+					<a onClick ="bookmarkL('give_low_dose_opioid')" href="#check_if_related_anxiety"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+			 <!-- Page #check_if_related_anxiety -->
+			<div data-role="page" id="check_if_related_anxiety">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(9/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check if related anxiety</h2>
+
+					<a onClick ="saveValueBmL('anxiety', 'Related Anxiety', 'check_if_related_anxiety')" href="#related_anxiety"  data-role="button" >Related Anxiety</a>
+					<a onClick ="saveValueBmL('anxiety', 'No related Anxiety', 'check_if_related_anxiety')" href="#consider_arranging_oxygen_conc"  data-role="button" >No related Anxiety</a>
+
+				</div>
+			 </div>
+
+			  <!-- Page #related_anxiety -->
+			<div data-role="page" id="related_anxiety">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(9/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Related Anxiety</h2>
+					<form name="form_related_anxiety">
+					<fieldset id="related_anxieties" data-role="controlgroup" data-type="vertical"  >
+						<input type="radio" name="rel_anx" id="form_related_anxiety_s1" />
+						<label for="form_related_anxiety_s1">Clorazepam drops sublingually 0.5 mgs 8-12 hourly</label>
+
+						<input type="radio" name="rel_anx" id="form_related_anxiety_s2" />
+						<label for="form_related_anxiety_s2">Alternative 1: Lorazepam 0.5 mg sublingually 4th hourly PRN</label>
+
+						<input type="radio" name="rel_anx" id="form_related_anxiety_s3" />
+						<label for="form_related_anxiety_s3">Alternative 2: Alprazolam 0.5 mg sublingually 4th hourly PRN</label>
+					</fieldset>
+					</form>
+
+			<a  onClick ="saveValuesBmL(document.form_related_anxiety, 'related_anxiety')" href="#check_if_dyspnoea_improved" data-role="button">Proceed</a>
+
+				</div>
+			 </div>
+
+			 <!-- Page #consider_arranging_oxygen_conc -->
+			<div data-role="page" id="consider_arranging_oxygen_conc">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(9/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Consider arranging oxygen concentrator</h2>
+					<a  href="#check_if_dyspnoea_improved" data-role="button">Related Anxiety</a>
+				</div>
+			 </div>
+
+		    <!-- Page #check_if_dyspnoea_improved -->
+			<div data-role="page" id="check_if_dyspnoea_improved">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(9/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check if dyspnoea improved</h2>
+					<a onClick ="bookmarkL('check_if_dyspnoea_improved')" href="#check_if_anxiety_or_insomnia"  data-role="button" >Yes</a>
+					<a onClick ="bookmarkL('check_if_dyspnoea_improved')" href="#contact_pc_team_for_advice"  data-role="button" >No</a>
+				</div>
+			 </div>
+
+			  <!-- Page #contact_pc_team_for_advice -->
+			<div data-role="page" id="contact_pc_team_for_advice">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(9/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Contact Palliative Care Team for advice</h2>
+					<a onClick ="bookmarkL('contact_pc_team_for_advice')" href="#check_if_anxiety_or_insomnia"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+		<!-- END Subprocess Dyspnoea-->
+
+		<!-- Start Subprocess Anxiety or insomnia-->
+
+		  <!-- Page #check_if_anxiety_or_insomnia -->
+			<div data-role="page" id="check_if_anxiety_or_insomnia">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(10/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check if anxiety or insomnia present</h2>
+
+					<div data-role="fieldcontain">
+					<form name="form_check_if_anxiety_or_insomnia">
+						<fieldset id="anxiety_or_insomnia" data-role="controlgroup" >
+							<input type="radio" name="radio-choice-1" id="check_if_anxiety_or_insomnia_s1" />
+							<label for="check_if_anxiety_or_insomnia_s1"><h2>Anxiety</h2>
+								Arrange Lorazepam OR Alprazolam 0.5 mg (po/sublingual) q4hourly PRN
+							</label>
+
+							<input type="radio" name="radio-choice-1" id="check_if_anxiety_or_insomnia_s2" />
+							<label for="check_if_anxiety_or_insomnia_s2"><h2>Anxiety/Insomnia</h2>
+								Arrange Temazepam 10-20mg po nocte PRN
+							</label>
+
+							<input type="radio" name="radio-choice-1" id="check_if_anxiety_or_insomnia_s3" />
+							<label for="check_if_anxiety_or_insomnia_s3"><h2>Anxiety/Myoclonus</h2>
+								Arrange Clonazepam 0.5-2 mg sublingual drops q8hourly PRN
+							</label>
+						</fieldset>
+						</form>
+					</div>
+
+					<a  onClick ="saveValuesBmL(document.form_check_if_anxiety_or_insomnia, 'check_if_anxiety_or_insomnia')" href="#constipation" data-role="button">Proceed</a>
+				</div>
+			 </div>
+
+			 <!-- END Subprocess Anxiety or insomnia-->
+
+			 <!-- Start Subprocess Constipation -->
+
+			 <!-- Page #constipation -->
+			<div data-role="page" id="constipation">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(11/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check for constipation</h2>
+					<a onClick ="saveValueBmL('constipation', 'Constipation', 'constipation')" href="#xor_constipation"  data-rel="dialog" data-role="button" >Constipation</a>
+					<a onClick ="saveValueBmL('constipation', 'No constipation', 'constipation')" href="#check_restlessness_and_agitation"  data-role="button" >No constipation</a>
+
+				</div>
+			 </div>
+
+			 <!-- Page #xor_constipation -->
+			<div data-role="page" data-rel="dialog" id="xor_constipation">
+
+				<div data-role="content">
+					<h2>Check for constipation</h2>
+					<a onClick ="bookmarkL('xor_constipation')" href="#refer_to_relateded_policy"  data-role="button" >Able to take oral medication</a>
+					<a onClick ="bookmarkL('xor_constipation')" href="#consider_to_invervene_in_terminal_phase"  data-role="button" >Not able to take oral medication</a>
+				</div>
+			 </div>
+
+			 <!-- Page #refer_to_relateded_policy -->
+			<div data-role="page" id="refer_to_relateded_policy">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(11/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Refer to related policy for suggested doses of 5 different medications</h2>
+					todo Alex: Auswahlliste implementieren
+					<a onClick ="bookmarkL('refer_to_relateded_policy')" href="#check_restlessness_and_agitation"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+			<!-- Page #consider_to_invervene_in_terminal_phase -->
+			<div data-role="page" id="consider_to_invervene_in_terminal_phase">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(11/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Consider if appropriate to intervene in terminal phase: client experiencing terminal restlessness may be constipated</h2>
+
+					<a onClick ="saveValueBmL('terminal_phase', 'Appropriate', 'consider_to_invervene_in_terminal_phase')" href="#arrange_medical_consent"  data-role="button" >Appropriate</a>
+					<a onClick ="saveValueBmL('terminal_phase', 'Not appropriate', 'consider_to_invervene_in_terminal_phase')" href="#check_restlessness_and_agitation"  data-role="button" >Not appropriate</a>
+
+				</div>
+			 </div>
+
+			 <!-- Page #arrange_medical_consent -->
+			<div data-role="page" id="arrange_medical_consent">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(11/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Arrange medical consent for PR intervention</h2>
+
+					<a onClick ="bookmarkL('arrange_medical_consent')" href="#check_restlessness_and_agitation"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+			 <!-- END Subprocess Constipation -->
+
+	 <!-- Start Subprocess Restlessness, agitation, and/or anxiety -->
+
+			 <!-- Page #check_restlessness_and_agitation -->
+			<div data-role="page" id="check_restlessness_and_agitation">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(12/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check if restlessness and agitation present</h2>
+
+					<a onClick ="bookmarkL('check_restlessness_and_agitation')" href="#check_if_patient_is_in_pain"  data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+			 <!-- Page #check_if_patient_is_in_pain -->
+			<div data-role="page" id="check_if_patient_is_in_pain">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(12/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Check if client has pain</h2>
+
+					<a onClick ="bookmarkL('check_if_patient_is_in_pain')" href="#and_assess_pain_and_non_pharm_ways"  data-role="button" >Yes</a>
+					<a onClick ="bookmarkL('check_if_patient_is_in_pain')" href="#consider_non_pharmacological_ways"  data-role="button" >No</a>
+				</div>
+			 </div>
+
+			 <!-- Page #and__assess_pain_and_non_pharm_ways -->
+			<div data-role="page" id="and_assess_pain_and_non_pharm_ways">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(12/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>What do you want to do first:</h2>
+					<a onClick ="saveValueBmL('and_assess_pain_and_non_pharm_ways', '1', 'and_assess_pain_and_non_pharm_ways')" href="#assess_pain"  data-role="button" >Open Assess pain</a>
+					<a onClick ="saveValueBmL('and_assess_pain_and_non_pharm_ways', '1', 'and_assess_pain_and_non_pharm_ways')" href="#consider_non_pharmacological_ways"  data-role="button" >Consider non-pharmacological ways to settle patient</a>
+
+				</div>
+			 </div>
+
+			 <!-- Page #consider_non_pharmacological_ways -->
+			<div data-role="page" id="consider_non_pharmacological_ways">
+
+				<div data-role="header">
+					<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(12/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<h2>Consider non-pharmacological ways to settle patient</h2>
+				<form name = "form_consider_non_pharmacological_ways">
+					<fieldset id="non-pharmacological_ways" data-role="controlgroup" data-type="vertical"  >
+						<input type="checkbox" name="non-pharmacological_ways" id="consider_non_pharmacological_ways_s1" />
+						<label for="consider_non_pharmacological_ways_s1">Repositioning</label>
+
+						<input type="checkbox" name="non-pharmacological_ways" id="consider_non_pharmacological_ways_s2" />
+						<label for="consider_non_pharmacological_ways_s2">Assessment for full bladder</label>
+
+						<input type="checkbox" name="non-pharmacological_ways" id="consider_non_pharmacological_ways_s3" />
+						<label for="consider_non_pharmacological_ways_s3">Assessment for constipation</label>
+
+						<input type="checkbox" name="non-pharmacological_ways" id="consider_non_pharmacological_ways_s4" />
+						<label for="consider_non_pharmacological_ways_s4">Client requires constant attention by carers</label>
+
+						<input type="checkbox" name="non-pharmacological_ways" id="consider_non_pharmacological_ways_s5" />
+						<label for="consider_non_pharmacological_ways_s5">Religious/Spiritual support</label>
+					</fieldset>
+				</form>
+					<a onClick ="saveValuesBmL(document.form_consider_non_pharmacological_ways, 'consider_non_pharmacological_ways')" href="#check_client_restless_aa" data-role="button">Proceed</a>
+
+				</div>
+			 </div>
+
+			 <!-- Page #check_client_restless_aa -->
+			 <div data-role="page" id="check_client_restless_aa">
+
+			 	<div data-role="header">
+			 		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(12/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+
+					<script>
+						if(checkIsset('consider_non_pharmacological_ways_s2'))
+						{
+							document.write("<h2>Caution: Consider indwelling catheter insertion</h2>");
+						}
+
+					</script>
+
+					<a onClick ="bookmarkL('check_client_restless_aa')" href="#assess_pain"  data-role="button" >Assess pain (again)</a>
+
+					<h2>Check if client still restless, agitated and/ or anxious</h2>
+
+					<a onClick ="bookmarkL('check_client_restless_aa')" href="#consider_pharm_ways_to_settle_patient"  data-role="button" >Yes</a>
+					<a onClick ="bookmarkL('check_client_restless_aa')" href="#check_if_breathing_present"  data-role="button" >No</a>
+
+				</div>
+			 </div>
+
+			 <!-- Page #consider_pharm_ways_to_settle_patient -->
+			 <div data-role="page" id="consider_pharm_ways_to_settle_patient">
+
+			 	<div data-role="header">
+			 		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(12/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+
+					<h2>Consider pharmacological ways to settle patient</h2>
+
+					<a onClick ="bookmarkL('consider_pharm_ways_to_settle_patient')" href="#seek_advice_pc_team"  data-role="button" >Proceed</a>
+
+				</div>
+			 </div>
+
+			  <!-- Page #seek_advice_pc_team -->
+			 <div data-role="page" id="seek_advice_pc_team">
+
+			 	<div data-role="header">
+			 		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(12/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+
+					<h2>Seek advice from Palliative Care Team</h2>
+					<a href="#check_need_for_sc_med_overview"  data-theme="e" data-rel="dialog" data-inline="true" data-role="button" >Show sc medication overview</a>
+
+					<p> May be required in combination</p>
+					<form name = "form_arrange_sc_med">
+						<fieldset id="arrange_sc_med_set" data-role="controlgroup" data-type="vertical"  >
+							<input type="checkbox" name="non-pharmacological_ways" id="arrange_sc_med_s1" />
+							<label for="arrange_sc_med_s1">Arrange subcutaneous Midazolam</label>
+
+							<input type="checkbox" name="non-pharmacological_ways" id="arrange_sc_med_s2" />
+							<label for="arrange_sc_med_s2">Arrange subcutaneous Haloperidol</label>
+
+						</fieldset>
+					</form>
+					<a 	onClick ="saveValuesBmL(document.form_arrange_sc_med, 'seek_advice_pc_team')" href="#client_settled"  data-rel="dialog" data-role="button" >Proceed</a>
+				</div>
+			 </div>
+
+			 <!-- Page #client_settled -->
+			 <div data-role="page" id="client_settled">
+
+				<div data-role="content">
+
+					<h2>Check if client is settled</h2>
+
+					<a onClick ="bookmarkL('client_settled')" href="#check_if_breathing_present"  data-role="button" >Client settled</a>
+					<a onClick ="bookmarkL('client_settled')" href="#seek_advice_pc_team"  data-role="button" >Client not settled</a>
+
+				</div>
+			 </div>
+			 <!--  END Subprocess 12: Restlessness_agitation, and/or anxiety -->
+
+
+			  <!--  START Subprocess 13:  Noisy respirations -->
+
+			  <!-- Page #check_if_breathing_present -->
+			 <div data-role="page" id="check_if_breathing_present">
+
+			 	<div data-role="header">
+			 		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(13/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+
+					<h2>Check if noisy breathing present</h2>
+
+					<a onClick ="saveValueBmL('breathing', 'Yes', 'check_if_breathing_present')" href="#check_if_exc_resp_secretions"  data-role="button" >Yes</a>
+					<a onClick ="saveValueBmL('breathing', 'No', 'check_if_breathing_present')" href="#check_potential_for_seizure"  data-role="button" >No</a>
+
+
+				</div>
+			 </div>
+
+			  <!-- Page #check_if_exc_resp_secretions -->
+			 <div data-role="page" id="check_if_exc_resp_secretions">
+
+			 	<div data-role="header">
+			 		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(13/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+
+					<h2>Check if excessive respiratory secretions present</h2>
+
+					<a onClick ="saveValueBmL('secretions', 'Yes', 'check_if_exc_resp_secretions')" href="#check_level_of_consciuosness"  data-role="button" >Yes</a>
+					<a onClick ="saveValueBmL('secretions', 'No', 'check_if_exc_resp_secretions')" href="#check_potential_for_seizure"  data-role="button" >No</a>
+
+				</div>
+			 </div>
+
+			  <!-- Page #check_level_of_consciuosness -->
+			 <div data-role="page" id="check_level_of_consciuosness">
+
+			 	<div data-role="header">
+			 		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(13/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+
+					<h2>Check level of consciousness</h2>
+
+					<a onClick ="saveValueBmL('conscious', 'Client is conscious', 'check_if_exc_resp_secretions')" href="#med3"  data-role="button" >Client is conscious</a>
+					<a onClick ="saveValueBmL('conscious', 'Client is unconscious', 'check_if_exc_resp_secretions')" href="#med4"  data-role="button" >Client is unconscious</a>
+
+				</div>
+			 </div>
+
+			 <!-- Page #med3 -->
+			 <div data-role="page" id="med3">
+
+			 	<div data-role="header">
+			 		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(13/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+						<a href="#check_need_for_sc_med_overview"  data-theme="e" data-rel="dialog" data-inline="true" data-role="button" >Show sc medication overview</a>
+					<h2>Give Glycopyrrolate 0.8 mg subcutaneously stat</h2>
+					<h2>q4hourly: Add Glycopyrrolate 0.4 mg subcutaneously</h2>
+
+					<a onClick ="bookmarkL('med3')" href="#check_if_symptoms_persistent"  data-role="button" >Client is conscious </a>
+				</div>
+			 </div>
+
+			<!-- Page #med4 -->
+			 <div data-role="page" id="med4">
+
+			 	<div data-role="header">
+			 		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(13/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<a href="#check_need_for_sc_med_overview"  data-theme="e" data-rel="dialog" data-inline="true" data-role="button" >Show sc medication overview</a>
+					<h2>Give Hyoscine Hydrobromide 0.8 mg subcutaneously stat</h2>
+					<h2>q4hourly: Add Hyoscine Hydrobromide 0.4 mg subcutaneously</h2>
+
+					<a onClick ="bookmarkL('med4')" href="#check_if_symptoms_persistent"  data-role="button" >Client is conscious </a>
+				</div>
+			 </div>
+
+			<!-- Page #check_if_symptoms_persistent -->
+			 <div data-role="page" id="check_if_symptoms_persistent">
+
+			 	<div data-role="header">
+			 		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(13/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+
+					<h2>Check if symptopms persistent</h2>
+
+					<a onClick ="bookmarkL('check_if_symptoms_persistent')" href="#discuss_drug_increase"  data-role="button" >Yes </a>
+					<a onClick ="bookmarkL('check_if_symptoms_persistent')" href="#check_potential_for_seizure"  data-role="button" >No</a>
+
+				</div>
+			 </div>
+
+			<!-- Page #discuss_drug_increase -->
+			 <div data-role="page" id="discuss_drug_increase">
+
+			 	<div data-role="header">
+			 		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(13/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+
+					<h2>Discuss possible increase of drug of choice with Medical Officer</h2>
+
+					<a onClick ="bookmarkL('check_if_symptoms_persistent')" href="#check_potential_for_seizure"  data-role="button" >Process</a>
+
+				</div>
+			 </div>
+
+			<!-- END SUBPROCESS 13: Noisy respirations -->
+
+			<!-- START SUBPROCESS 14 Crisis medications -->
+
+			<!-- Page #check_potential_for_seizure -->
+			 <div data-role="page" id="check_potential_for_seizure">
+
+			 	<div data-role="header">
+			 		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(14/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+
+					<h2>Check potential for seizure or significant haemorrhage or acute respiratory distress</h2>
+
+					<a onClick ="saveValueBmL('seizure', 'Potential exists', 'check_potential_for_seizure')" href="#med5"  data-role="button" >Potential exists</a>
+					<a onClick ="saveValueBmL('seizure', 'No potential', 'check_potential_for_seizure')" rel="external" href="LCP_Report.html#end"  data-role="button" >No potential</a>
+
+
+				</div>
+			 </div>
+
+			<!-- Page #med5 -->
+			 <div data-role="page" id="med5">
+
+			 	<div data-role="header">
+			 		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(14/15)</h1>
+					<h2>Perform Assessment for Symptom Management</h2>
+					<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+				</div>
+
+				<div data-role="content">
+					<a href="#check_need_for_sc_med_overview"  data-theme="e" data-rel="dialog" data-inline="true" data-role="button" >Show sc medication overview</a>
+					<h2>Arrange subcutaneous Midazolam 10 mg stat PRN </h2>
+					<h2>Consider continuous subcutaneous infusion of Midazolam +/- opioid</h2>
+
+					<a onClick ="bookmarkL('med5')" rel="external" href="LCP_Report.html#end"  data-role="button" >End</a>
+				</div>
+			 </div>
+
+</body>
+</html>

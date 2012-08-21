@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+ 	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="content-type" content="application/xhtml+xml;charset=utf-8" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+		<link rel="stylesheet" type="text/css" href="../scripts/Stylesheet.css">
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="../scripts/localstorage.js"></script>
+		<script>
+			 $(document).bind("mobileinit", function() {
+				 $.mobile.page.prototype.options.addBackBtn = true;
+				 });
+			 </script>
+
+		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+
+ </head>
+ <body>
+
+	 <!-- #beenden -->
+	 <div  data-role="page" id="beenden" >
+	    <div data-role="header">
+	     <h1>Apoplektischer Insult</h1>
+	    </div>
+	    <div data-role="content">
+
+	      <h2>Sie haben den Prozess erfolgreich abgeschlossen!</h2>
+	      <h3>Abschließende Bemerkungen</h3>
+
+	   <form name = "form_beenden">
+	      <div data-role="fieldcontain" >
+				<label for="patient">Patient</label>
+				<input type="text" name="patient" id="patient" value=""/>
+		</div>
+
+		<div data-role="fieldcontain">
+			<label for="textdoku">Dokumentation</label>
+			<textarea cols="40" rows="8" name="textdoku" id="textdoku"></textarea>
+		</div>
+		</form>
+
+		<script>
+		var pat = localStorage.getItem('patient');
+		document.form_beenden.patient.value=pat;
+		var td = localStorage.getItem('textdoku');
+		document.form_beenden.textdoku.value=td;
+		</script>
+		<a  onClick ="saveValues(document.form_beenden)" a href="../public/menu.html" rel="external" data-role="button">Speichern und beenden</a>
+
+
+		<h3>Übersicht</h3>
+		<ul data-role="listview" data-inset="true"  >
+
+		 <li data-role="list-divider">Neurologische Defizite</p></li>
+		 <li>
+		 <p>
+		 Halbseitenlähmung:
+		 <script>
+		 printValueGer('symptome_pruefen_s1');
+		 </script>
+		 </p>
+		 <p>
+		 FAST:
+		 <script>
+		 printValueGer('symptome_pruefen_s2');
+		 </script>
+		 </p>
+		 <p>
+		 Sehstörung:
+		 <script>
+		 printValueGer('symptome_pruefen_s3');
+		 </script>
+		 </p>
+		  <p>
+		 Taubheitsgefühl/Parästhesien:
+		 <script>
+		 printValueGer('symptome_pruefen_s4');
+		 </script>
+		 </p>
+		  <p>
+		 Bewusstseinsstörungen unklarer Ursache:
+		 <script>
+		 printValueGer('symptome_pruefen_s5');
+		 </script>
+		 </p>
+		 </li
+		</ul>
+
+		 <li data-role="list-divider">Schutzreflexe</p></li>
+		 <li>
+		 <p>
+		 Es lagen Schutzreflexe vor:
+		<script>
+		 printValue('basismassnahmen');
+		 </script>
+		 </p>
+		 </li>
+
+		 <li data-role="list-divider">Blutdruckmessung</p></li>
+		 <li>
+		 <p>
+		 RR > 130 mmHg syst:
+		<script>
+		 printValue('rr');
+		 </script>
+		 </p>
+		 </li>
+
+		 <li data-role="list-divider">Notarztnotwendigkeit</p></li>
+		 <li>
+		 <p>
+		 War es notwendig, einen Notarzt zu rufen:
+		<script>
+		 printValue('notarzt_notwendigkeit_pruefen');
+		 </script>
+		 </p>
+		 </li>
+
+		 <li data-role="list-divider">Sauerstoffgehalt</p></li>
+		 <li>
+		 <p>
+		Sauerstoffgehalt in %:
+		<script>
+		 printValue('sauerstoffgehalt_pruefen');
+		 </script>
+		 </p>
+		 </li>
+
+		 <li data-role="list-divider">Blutzucker</p></li>
+		 <li>
+		 <p>
+		Blutzucker in mmol/l:
+		<script>
+		 printValue('bz_messung');
+		 </script>
+		 </p>
+		 </li>
+
+		 <li data-role="list-divider">Körpertemperatur</p></li>
+		 <li>
+		 <p>
+		Körpertemperatur in
+		<script>
+		 printValue('flip-a');
+		 </script>
+		 :
+		 <script>
+		 printValue('slider-2');
+		 </script>
+		 </p>
+		 </li>
+
+		 <li data-role="list-divider">Temperaturmanagement</p></li>
+		 <li>
+		 <p>
+		Rüstiger Patient: Symptombeginn <5h?
+		<script>
+		 printValue('temperaturmanagement');
+		 </script>
+		 </p>
+		 </li>
+
+			 <li data-role="list-divider">Erreichbarkeit Angehörige</p></li>
+		 <li>
+		 <p>
+		Erreichbarkeit Angehörige für KH ermöglichen:
+		<script>
+		 printValueGer('form_or_erreichbarkeit_mitfahrt_s1');
+		 </script>
+		 </p>
+		 <p>
+		Mitfahrt Angehöriger im RTW/ NEF:
+		<script>
+		 printValueGer('form_or_erreichbarkeit_mitfahrt_s2');
+		 </script>
+		 </p>
+		 </li>
+
+		 <li data-role="list-divider">Laborblutentnahme</p></li>
+		 <li>
+		 <p>
+		Liess die Situation eine zügige Blutentnahme zu:
+		<script>
+		 printValue('laborblutentnahme');
+		 </script>
+		 </p>
+		 </li>
+
+		 <li data-role="list-divider">Noteinsatzfahrzeug</p></li>
+		 <li>
+		 <p>
+		War ein Noteinsatzfahrzeug (NEF) vor Ort?
+		<script>
+		 printValue('blutentnahme_durchfuehren');
+		 </script>
+		 </p>
+		 </li>
+
+		 <li data-role="list-divider">Blutdruckmessung Nr.2</p></li>
+		 <li>
+		 <p>
+		 Lag der Blutdruck unter 130 mmHg syst?
+		<script>
+		 printValue('rr2');
+		 </script>
+		 </p>
+		 </li>
+
+		 <li data-role="list-divider">Blutdruck</p></li>
+		 <li>
+		 <p>
+		Lag der Blutdruck des Patienten über 220/140 mmHg oder lag er unter 130 mmHg bei mind. 2 facher Messung oder lagt der GCS-Wert (Glasgow Coma Scale) unter 11?
+		<script>
+		 printValue('rr3');
+		 printValue('kristalloide_infusion');
+		 </script>
+		 </p>
+		 </li>
+
+		 <li data-role="list-divider">Bettlägrig</p></li>
+		 <li>
+		 <p>
+		War der Patient bereits vor Ereignis dauerhaft bettlägrig?
+		<script>
+		 printValue('notarzt_rufen2');
+		 printValue('bettlaegrigkeit');
+		 </script>
+		 </p>
+		 </li>
+
+	</div>
+	  <a onClick ="saveValues(document.form_beenden)" href="../public/menu.html"  rel="external" data-role="button" >Hauptmenü</a>
+	 </div>
+	 <br/>
+
+</body>
+</html>

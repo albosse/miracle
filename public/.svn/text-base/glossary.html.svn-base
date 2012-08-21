@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en_US" xml:lang="en_US">
+
+ <head>
+ 	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="content-type" content="application/xhtml+xml;  charset=utf-8" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="../scripts/localstorage.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+
+  		<title>Codename :: Miracle</title>
+ </head>
+ <body>
+
+
+ 	 <!-- Page: Glossary -->
+	 <div  data-role="page" id="glossary" data-title="glossary">
+	 <script>
+	 $('#glossary').bind('pageinit',function(event)
+		 	{
+			 	$("#apo_tab").click(function(e)
+			 	{
+			 		$(".apoplex").show();
+			 		$(".lcp").hide();
+			 	});
+
+			 	 $("#lcp_tab").click(function(e)
+			 	{
+			 		$(".apoplex").hide();
+			 		$(".lcp").show();
+			 	});
+
+			    $("#all").click(function(e)
+			 	{
+			 		$(".apoplex").show();
+			 		$(".lcp").show();
+			 	});
+		 });
+		 </script>
+
+	    <div data-role="header">
+			<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+	 	  	<h1>Glossary</h1>
+	    	<div data-role="navbar">
+				<ul>
+					<li><a id="all">All</a></li>
+					<li><a id="apo_tab">Apoplektischer Insult</a></li>
+					<li><a id="lcp_tab">LCP</a></li>
+				</ul>
+			</div>
+			<a href="../public/menu.html" rel="external" data-icon="home">Home</a>
+		</div>
+
+	    <div data-role="content">
+	   		<h1>Glossary</h1>
+
+				<div class="content-primary">
+					<ul data-role="listview">
+
+						<li data-role="list-divider">0-9</li>
+						<li class="lcp" >2nd hourly: every 2 hours</li>
+						<li class="lcp" >4th hourly: 6/24 </li>
+
+						<li data-role="list-divider">A</li>
+						<li class="lcp">AMO: Admitting Medical Officer</li>
+						<li class="lcp">Attendant: Person within the LCP.</li>
+
+						<li data-role="list-divider">B</li>
+						<li class="apoplex">bd: bis die - twice a day - zweimal täglich</li>
+
+						<li data-role="list-divider">C</li>
+						<li class="lcp">CPR: Cardiac Pulmunary Resuscitation - Herz-Lungen-Wiederbelebung</li>
+
+						<li data-role="list-divider">F</li>
+						<li class="apoplex">FAST: Face: Gesichtsasymmetrie, Arm: einseitiges Absenken, Speech: verwaschene Sprache, Test: Sprechstörungen</li>
+
+						<li data-role="list-divider">G</li>
+						<li class="apoplex">GCS: Glasgow Coma Scale - Nummerischer Wert des Bewusstseins eines Patienten</li>
+						<li class="apoplex">GP:  A general practitioner (GP) is a medical practitioner who treats acute and chronic illnesses and provides preventive care and health education for all ages and all sexes. They have particular skills in treating people with multiple health issues and comorbidities. "The good GP will treat patients both as people and as a population"</li>
+
+						<li data-role="list-divider">I</li>
+						<li class="lcp" >ICP: Integrated Care Pathway for the Dying Patient</li>
+
+						<li data-role="list-divider">L</li>
+						<li class="lcp" >LCP: Liverpool Care Pathway</li>
+
+						<li data-role="list-divider">M</li>
+						<li class="lcp" >MCPCIL: Marie Curie Palliative Care Institute Liverpool</li>
+						<li>MET: Medical Emergency Team </li>
+						<li>mg: Milligram </li>
+
+						<li data-role="list-divider">N</li>
+						<li class="apoplex">NEF: Das Notarzteinsatzfahrzeug (NEF) ist ein Fahrzeug des Rettungsdienstes, das den Notarzt zum Einsatzort bringt. Es dient der präklinischen Versorgung von Notfallpatienten, die ärztlicher Hilfeleistung bedürfen.</li>
+						<li class="lcp" >NSW: The Liverpool Hospital</li>
+
+						<li data-role="list-divider">O</li>
+						<li class="apoplex">OHL: Oberkörperhochlage z.B. 30° </li>
+
+						<li data-role="list-divider">P</li>
+						<li>PCU: Palliative Care Unit </li>
+						<li class="lcp" >PRN: pro re nata, bedeutet so viel wie bei Bedarf und ist auf Medikamentenverschreibungen/Rezepten im englischsprachigen Raum zu finden - as required</li>
+						<li class="lcp" >PRN-Sheet: Includes PRN-medication</li>
+						<li class="apoplex">po: peroral </li>
+
+						<li data-role="list-divider">Q</li>
+						<li class="lcp">q4hourly: viertelstündlich</li>
+						<li class="lcp">q8hourly: achtelstündlich</li>
+						<li class="lcp">QID: quater in die - viermal täglich </li>
+
+						<li data-role="list-divider">R</li>
+						<li class="lcp">re: Regarding</li>
+						<li class="apoplex">RR: Riva-Rocci, in der Medizin, Abkürzung für traditionelle Blutdruckmessung am Oberarm nach Scipione Riva-Rocci</li>
+
+						<li data-role="list-divider">S</li>
+						<li class="lcp" >sc: s/c - subcutan - subcutaneous - unter die Haut</li>
+						<li class="lcp">stat: statim - sofort </li>
+
+						<li data-role="list-divider">T</li>
+						<li class="lcp" >TDS: ter die sumendum - dreimal täglich</li>
+						<li class="apoplex">Titration: Medikamente nicht auf einmal, sondern in mehreren Gaben verabreichen (Spritze nicht auf einmal!). Zusammensetzung von Medikamentengaben /-dosen Titration - chem. Verfahren</li>
+
+						<li data-role="list-divider">V</li>
+						<li class="apoplex">i.v.: intravenös</li>
+						<li class="lcp" >Variance sheet: Variance sheet Section 5 LCP</li>
+
+						<li data-role="list-divider">Z</li>
+						<li class="apoplex">ZA: Zentralambulanz/Zentrale Aufnahme/Notfallaufnahme</li>
+
+					</ul>
+				</div>
+	    </div>
+	 </div>
+ </body>
+</html>

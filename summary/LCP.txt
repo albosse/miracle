@@ -1,0 +1,64 @@
+Summary
+==============
+
+1. Check Circumstances
+	1.1 Profoundly weak/essentially bed-bound:undefined
+	1.2 Semi-comatose, drowsy:undefined
+	1.3 Disinterested in food &amp; fluid:undefined
+	1.4 Difficulty swallowing:undefined
+
+2. Place of death
+	2.1 Desired place of death:undefined
+	2.2 Bed availability:undefined
+	2.3 Bed  If no beds are available::undefined
+
+3. Perform Assessment for Symptom Management
+	3.1 Unable to Swallow:undefined
+	3.2 Intestinal obstruction:undefined
+	3.3 Persistent nausea and vomiting:undefined
+	3.4 Decreased level of consciousness:undefined
+	3.5 Malabsorbtion:undefined
+	3.6 Unsatisfactory response to oral medication::undefined
+
+4. Pain Assessment
+	4.1 Assess Pain:undefined
+	4.2  Ability to swallow:undefined
+	4.3 Liver function:undefined
+
+5. Nausea and vomiting
+	5.1 Nausea and vomiting:undefined
+
+6. Oral assessment
+	6.1 Oral mucosa:undefined
+
+7. Dyspnoea
+	7.1 Dyspnoea present:undefined
+	7.2 Related anxiety:undefined
+	7.3 Clorazepam drops sublingually 0.5 mgs 8-12 hourly:undefined
+	7.4 Alternative 1: Lorozepam 0.5 mg sublingually 4th hourly PRN:undefined
+	7.5 Alternative 2: Alprazolam 0.5 mg sublingually 4th hourly PRN:undefined
+
+8. Anxiety or insomnia
+	8.1 Lorazepam OR Alprazolam 0.5 mg (po/sublingual) q4hourly PRN:undefined
+	8.1 Temazepam 10-20mg po nocte PRN:undefined
+	8.2 Clonazepam 0.5-2 mg sublingual drops q8hourly PRN:undefined
+9. Constipation
+	9.1 Constipation:undefined
+	9.1 Consider if appropriate to intervene in terminal phase: client experiencing terminal restlessness may be constipated::undefined
+
+10.Restlessness, agitation, and/or anxiety
+	10.1 Repositioning:undefined
+	10.2 Assessment for full bladder:undefined
+	10.3 Assessment for constipation:undefined
+	10.4 Client requires constant attention by carers:undefined
+	10.5 Religious/Spiritual support:undefined
+	10.6 Arrange subcutaneos Midazolam:undefined
+	10.7 Arrange subcutaneos Haloperidol:undefined
+
+11.Noisy respirations
+	11.1 Noisy breathing present:undefined
+	11.2 Excessive respiratory secretions present:undefined
+	11.3 Level of consciousness:undefined
+
+12.Crisis medications
+	12.1  Potential for seizure or significant haemorrhage or acute respiratory distress:undefined

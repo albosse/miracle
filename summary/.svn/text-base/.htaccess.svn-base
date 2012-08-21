@@ -1,0 +1,8 @@
+AuthType Basic
+AuthName "Miracle Reports"
+AuthUserFile /wwwdata/www.miracle.uni-osnabrueck.de/htdocs/summary/.htusers
+
+Options Indexes 
+order deny,allow
+allow from all
+require valid-user

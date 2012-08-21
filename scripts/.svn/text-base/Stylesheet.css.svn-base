@@ -1,0 +1,28 @@
+@CHARSET "ISO-8859-1";
+
+.ui-header .ui-title,.ui-footer .ui-title {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.switch-container .ui-slider-switch {
+	width: 9em;
+}
+
+div.ui-slider-switch {
+	width: 9em;
+}
+
+.ui-header .ui-title,.ui-footer .ui-title {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.ui-btn-text {
+	overflow: visible !important;
+	white-space: normal !important;
+}
+
+.doc {
+	float: left;
+}

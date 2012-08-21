@@ -1,0 +1,394 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+ 	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="content-type" content="application/xhtml+xml;  charset=utf-8" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+		<link rel="stylesheet" type="text/css" href="../scripts/Stylesheet.css">
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="../scripts/localstorage.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+
+		<title>Liverpool Care Pathway</title>
+ </head>
+ <body>
+
+ 	<!-- Page #end -->
+		 <div data-role="page" id="end">
+			 	<div data-role="header">
+			 		<a data-rel="back" class='ui-btn-left ui-btn-back' data-icon='arrow-l'>Back</a>
+					<h1>LCP(15/15)</h1>
+					<h2>Process finished</h2>
+					<a href="../public/menu.html"  rel="external" data-icon="home">Home</a>
+				</div>
+
+
+				<div data-role="content">
+					<h2>You've finished the Liverpool Care Pathway</h2>
+					<p>See the report for further informations.</p>
+						<h2>Summary</h2>
+
+						<ul data-role="listview" data-inset="true"  >
+							 <li data-role="list-divider">Check Circumstances</li>
+							 <li>
+							 <p>
+							 Profoundly weak/essentially bed-bound:
+							 <script>
+							 printValueEng('form_check_circumstances_s1');
+							 </script>
+							 </p>
+							 <p>
+							 Semi-comatose, drowsy:
+							 <script>
+							 printValueEng('form_check_circumstances_s2');
+							 </script>
+							 </p>
+							 <p>
+							 Disinterested in food & fluid:
+							 <script>
+							 printValueEng('form_check_circumstances_s3');
+							 </script>
+							 </p>
+							 <p>
+							Difficulty swallowing:
+							 <script>
+							 printValueEng('form_check_circumstances_s4');
+							 </script>
+							 </p>
+							 </li
+						 </ul>
+
+
+						 <ul data-role="listview" data-inset="true"  >
+						 <li data-role="list-divider">Place of death</li>
+						 <li>
+						 <p>
+						 Desired place of death:
+						 <script>
+						 printValue('place_of_death');
+						 </script>
+						 </p>
+						 <p>
+						 Bed availability:
+						 <script>
+						 printValue('bed_availability');
+						 </script>
+						 </p>
+						 <p>
+						 If no beds are available:
+						 <script>
+						 printValue('no_bed_available');
+						 </script>
+						 </p>
+						 </li>
+						</ul>
+
+
+						 <ul data-role="listview" data-inset="true"  >
+						 <li data-role="list-divider">Perform Assessment for Symptom Management</li>
+						 <li>
+						 <p>
+						 Unable to Swallow:
+						 <script>
+						 printValueEng('check_need_for_sc_med_s1');
+						 </script>
+						 </p>
+						 <p>
+						 Intestinal obstruction:
+						 <script>
+						 printValueEng('check_need_for_sc_med_s2');
+						 </script>
+						 </p>
+						 <p>
+						 Painful mouth, thorat  and/or oesophageal lesion
+						 <script>
+						 printValueEng('check_need_for_sc_med_s3');
+						 </script>
+						 </p>
+						 <p>
+						 Persistent nausea and vomiting:
+						 <script>
+						 printValueEng('check_need_for_sc_med_s4');
+						 </script>
+						 </p>
+
+						 <p>
+						 Decreased level of consciousness:
+						 <script>
+						 printValueEng('check_need_for_sc_med_s5');
+						 </script>
+						 </p>
+
+						 <p>
+						 Malabsorbtion:
+						 <script>
+						 printValueEng('check_need_for_sc_med_s6');
+						 </script>
+						 </p>
+
+						 <p>
+						 Unsatisfactory response to oral medication:
+						 <script>
+						 printValueEng('check_need_for_sc_med_s7');
+						 </script>
+						 </p>
+
+						 </li
+						 </ul>
+
+
+
+						 <ul data-role="listview" data-inset="true"  >
+						 <li data-role="list-divider">Pain Assessment</li>
+						 <li>
+						 <p>
+						 Assess Pain:
+						 <script>
+						 printValue('assess_pain');
+						 </script>
+						 </p>
+						 <p>
+						 Ability to swallow:
+						 <script>
+						 printValue('swallow');
+						 </script>
+						 </p>
+						 <p>
+						 Liver function:
+						 <script>
+						 printValue('liver');
+						 </script>
+						 </p>
+						 </li>
+						</ul>
+
+
+						 <ul data-role="listview" data-inset="true"  >
+						 <li data-role="list-divider">Nausea and vomiting</li>
+						 <li>
+						 <p>
+						 Nausea and vomiting:
+						 <script>
+						 printValue('vomiting');
+						 </script>
+						 </p>
+						 </li>
+						</ul>
+
+
+
+						 <ul data-role="listview" data-inset="true"  >
+						 <li data-role="list-divider">Oral assessment</li>
+						 <li>
+						 <p>
+						 Oral mucosa:
+						 <script>
+						 printValue('oral_mucosa');
+						 </script>
+						 </p>
+						 </li>
+						</ul>
+
+
+						 <ul data-role="listview" data-inset="true"  >
+						 <li data-role="list-divider">Dyspnoea</li>
+						 <li>
+						 <p>
+						 Dyspnoea present:
+						 <script>
+						 printValue('dyspnoea');
+						 </script>
+						 </p>
+						 <p>
+						 Related anxiety:
+						 <script>
+						 printValue('anxiety');
+						 </script>
+						 </p>
+						 <p>
+						 Clorazepam drops sublingually 0.5 mgs 8-12 hourly:
+						 <script>
+						 printValueEng('form_related_anxiety_s1');
+						 </script>
+						 </p>
+						 <p>
+						 Alternative 1: Lorozepam 0.5 mg sublingually 4th hourly PRN:
+						 <script>
+						 printValueEng('form_related_anxiety_s2');
+						 </script>
+						 </p>
+						 <p>
+						 Alternative 2: Alprazolam 0.5 mg sublingually 4th hourly PRN:
+						 <script>
+						 printValueEng('form_related_anxiety_s3');
+						 </script>
+						 </p>
+
+						 </li>
+						</ul>
+
+
+						 <ul data-role="listview" data-inset="true"  >
+						 <li data-role="list-divider">Anxiety or insomnia</li>
+						 <li>
+						 <p>
+						 Lorazepam OR Alprazolam 0.5 mg (po/sublingual) q4hourly PRN:
+						 <script>
+						 printValueEng('check_if_anxiety_or_insomnia_s1');
+						 </script>
+						 </p>
+						 <p>
+						 Temazepam 10-20mg po nocte PRN:
+						 <script>
+						 printValueEng('check_if_anxiety_or_insomnia_s2');
+						 </script>
+						 </p>
+						 <p>
+						 Clonazepam 0.5-2 mg sublingual drops q8hourly PRN:
+						 <script>
+						 printValueEng('check_if_anxiety_or_insomnia_s3');
+						 </script>
+						 </p>
+						 </li>
+						</ul>
+
+
+
+						 <ul data-role="listview" data-inset="true"  >
+						 <li data-role="list-divider">Constipation</li>
+						 <li>
+						 <p>
+						 Constipation:
+						 <script>
+						 printValue('constipation');
+						 </script>
+						 </p>
+						 <p>
+						 Consider if appropriate to intervene in terminal phase: client experiencing terminal restlessness may be constipated:
+						 <script>
+						 printValue('terminal_phase');
+						 </script>
+						 </p>
+						 </li>
+						</ul>
+
+
+
+						 <ul data-role="listview" data-inset="true"  >
+						 <li data-role="list-divider">Restlessness, agitation, and/or anxiety</li>
+						 <li>
+						 <p>
+						 Repositioning:
+						 <script>
+						 printValueEng('consider_non_pharmacological_ways_s1');
+						 </script>
+						 </p>
+						 <p>
+						 Assessment for full bladder:
+						 <script>
+						 printValueEng('consider_non_pharmacological_ways_s2');
+						 </script>
+						 </p>
+						 <p>
+						 Assessment for constipation:
+						 <script>
+						 printValueEng('consider_non_pharmacological_ways_s3');
+						 </script>
+						 </p>
+						 <p>
+						 Client requires constant attention by carers:
+						 <script>
+						 printValueEng('consider_non_pharmacological_ways_s4');
+						 </script>
+						 </p>
+						 <p>
+						 Religious/Spiritual support:
+						 <script>
+						 printValueEng('consider_non_pharmacological_ways_s5');
+						 </script>
+						 </p>
+						 <p>
+						 Arrange subcutaneos Midazolam:
+						 <script>
+						 printValueEng('arrange_sc_med_s1');
+						 </script>
+						 </p>
+						 <p>
+						 Arrange subcutaneos Haloperidol:
+						 <script>
+						 printValueEng('arrange_sc_med_s2');
+						 </script>
+						 </p>
+
+						 </li>
+						</ul>
+
+
+						 <ul data-role="listview" data-inset="true"  >
+						 <li data-role="list-divider">Noisy respirations</li>
+						 <li>
+						 <p>
+						 Noisy breathing present:
+						 <script>
+						 printValue('breathing');
+						 </script>
+						 </p>
+						 <p>
+						 Excessive respiratory secretions present:
+						 <script>
+						 printValue('secretions');
+						 </script>
+						 </p>
+						 <p>
+						 Level of consciousness:
+						 <script>
+						 printValue('conscious');
+						 </script>
+						 </p>
+						 </li>
+						</ul>
+
+						 <ul data-role="listview" data-inset="true"  >
+						 <li data-role="list-divider">Crisis medications</p></li>
+						 <li>
+						 <p>
+						 Potential for seizure or significant haemorrhage or acute respiratory distress:
+						 <script>
+						 printValue('seizure');
+						 </script>
+						 </p>
+						 </li>
+						</ul
+					</div>
+
+					<a onClick ="bookmarkL('end')" href="../public/menu.html"  rel="external" data-role="button" >Back to main menu</a>
+					<a id="saveReportButton" data-inline="true" data-role="button" data-theme="e">Save Report</a>
+
+					<script>
+
+					    $("#saveReportButton").click(function()
+					    {
+
+					    if(!$('#seeReportButton').length){
+
+							var summary = saveReportLCP();
+						      $.ajax(
+									{
+										type: "POST",
+										url : "../backend/saveToPdf.php",
+										data: {content:summary},
+										success : function (data)
+										{
+											var link = '<a target="_blank" rel="external" id="seeReportButton" data-inline="true" data-role="button" data-theme="b" href="' + data +'">See Report</a>';
+
+											$(link).insertAfter('#saveReportButton').button();
+										}
+									});
+						}
+						 });
+					</script>
+		</div>
+
+
+ </body>
+ </html>

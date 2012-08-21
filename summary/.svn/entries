@@ -1,0 +1,52 @@
+8
+
+dir
+75
+https://pl5.projectlocker.com/UniversityOsnabrueck/Miracle/svn/summary
+https://pl5.projectlocker.com/UniversityOsnabrueck/Miracle/svn
+
+
+
+2012-08-21T13:42:14.446135Z
+74
+albosse@uos.de
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+88d46bd9-83eb-471d-bd2d-2addf78692e5
+
+.htaccess
+file
+
+
+
+
+2012-08-21T15:32:44.607867Z
+dbd4ed355f6ca7246c0f8fa675812a13
+2012-08-21T13:42:14.446135Z
+74
+albosse@uos.de
+
+.htusers
+file
+
+
+
+
+2012-08-21T15:32:44.611867Z
+03014c89885b20b82fb9f3a57f2b07c5
+2012-08-21T13:42:14.446135Z
+74
+albosse@uos.de
+
